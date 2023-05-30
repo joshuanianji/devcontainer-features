@@ -4,6 +4,12 @@
 
 This repo contains my custom devcontainer features.
 
+## Features
+
+| Feature | Description |
+| - | - |
+| [github-cli-persistence](https://github.com/joshuanianji/devcontainer-features/tree/main/src/github-cli-persistence) | Preserves `~/.config/gh` folder across container instances, to avoid extra logins from the Github CLI after container restarts |
+
 ## References
 
 - [Dev Container Features Starter Template](https://github.com/devcontainers/feature-starter)
