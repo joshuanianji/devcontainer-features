@@ -15,10 +15,13 @@ source dev-container-features-test-lib
 # Thus, here, I only check basic directory existence
 
 
-# check that `.config/gh` and `/dc/github-cli` exist`
+# check that `~/.config/gh` and `/dc/github-cli` exist`
 check "config" bash -c "ls -la ~/.config | grep 'gh'"
 check "dc" bash -c "ls -la /dc | grep 'github-cli'"
 
+# check that `~/.config/gh` is a symlink
+# https://unix.stackexchange.com/a/96910
+check "~/.config/gh is a symlink" bash -c "test -L ~/.config/gh && test -d ~/.config/gh"
 
 # Report result
 reportResults
