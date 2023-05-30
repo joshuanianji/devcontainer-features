@@ -13,6 +13,7 @@ fi
 
 # make ~/.config/gh folder if doesn't exist
 mkdir -p "$_REMOTE_USER_HOME/.config/gh"
+mkdir -p "/dc/github-cli"
 
 ln -s /dc/github-cli "$_REMOTE_USER_HOME/.config/gh"
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config/gh"
