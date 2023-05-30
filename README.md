@@ -8,7 +8,7 @@ This repo contains my custom devcontainer features.
 
 | Feature | Description |
 | - | - |
-| [github-cli-persistence](https://github.com/joshuanianji/devcontainer-features/tree/main/src/github-cli-persistence) | Preserves `~/.config/gh` folder across container instances, to avoid extra logins from the Github CLI after container restarts |
+| [github-cli-persistence](https://github.com/joshuanianji/devcontainer-features/tree/main/src/github-cli-persistence) | Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder across container instances. |
 
 ## References
 

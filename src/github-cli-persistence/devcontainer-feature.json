@@ -2,7 +2,7 @@
     "name": "Github CLI Persistence",
     "id": "github-cli-persistence",
     "version": "0.0.0",
-    "description": "Preserves `~/.config/gh` folder across container instances, to avoid extra logins after container restarts",
+    "description": "Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder across container instances.",
     "options": {},
     "mounts": [
         {
