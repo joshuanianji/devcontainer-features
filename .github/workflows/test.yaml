@@ -13,8 +13,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - github-cli-persistence
         baseImage:
           - debian:latest
           - ubuntu:latest
