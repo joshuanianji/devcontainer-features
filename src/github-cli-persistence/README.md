@@ -19,8 +19,17 @@ Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder acros
 
 ## Notes
 
-- This feature assumes you have the `ghcr.io/devcontainers/features/github-cli` feature installed as well. 
-- This Feature should work on recent versions of Debian/Ubuntu-based distributions. Github actions uses `amd` architecture to test it, but it should work with `arm` based architectures as well.
+- This feature assumes you have the `ghcr.io/devcontainers/features/github-cli` feature installed as well.
+
+## OS and Architecture Support
+
+|        | amd64 | arm64 |
+| ------ | ----- | ----- |
+| ubuntu | ✅     | ✔️     |
+| debian | ✅     | ✔️     |
+
+- ✅: Tested and verified on Github Actions
+- ✔️: Tested locally on my mac (but not on GHA)
 
 ## Changelog
 
@@ -28,6 +37,11 @@ Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder acros
 | ------- | ---------------------------------------------------------------- |
 | 0.0.1   | Rename existing ~/.config/gh folder to ~/.config/gh if it exists |
 | 0.0.0   | Initial Version                                                  |
+
+## References
+
+- [Github CLI Feature](https://github.com/devcontainers/features/tree/main/src/github-cli)
+- [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence)
 
 
 ---
