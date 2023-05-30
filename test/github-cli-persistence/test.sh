@@ -12,7 +12,7 @@ source dev-container-features-test-lib
 # https://github.com/devcontainers/cli/blob/main/docs/features/test.md
 #
 # From my tests, this means the `gh` CLI will not be installed:
-# Thus, here, I only check basic directory stuff
+# Thus, here, I only check basic directory existence
 
 
 # check that `.config/gh` and `/dc/github-cli` exist`
