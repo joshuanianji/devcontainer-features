@@ -24,7 +24,7 @@ if [ -e "$_REMOTE_USER_HOME/.config/gh" ]; then
 fi
 
 ln -s /dc/github-cli "$_REMOTE_USER_HOME/.config/gh"
-chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config/gh"
+chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config"
 
 # chown mount (only attached on startup)
 cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
