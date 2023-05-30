@@ -11,6 +11,9 @@ if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
   exit 1
 fi
 
+# make ~/.config/gh folder if doesn't exist
+mkdir -p "$_REMOTE_USER_HOME/.config/gh"
+
 ln -s /dc/github-cli "$_REMOTE_USER_HOME/.config/gh"
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config/gh"
 
