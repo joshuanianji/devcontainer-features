@@ -11,9 +11,17 @@ if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
   exit 1
 fi
 
-# make ~/.config/gh folder if doesn't exist
-mkdir -p "$_REMOTE_USER_HOME/.config/gh"
+# make ~/.config folder if doesn't exist
+mkdir -p "$_REMOTE_USER_HOME/.config"
 mkdir -p "/dc/github-cli"
+
+# if `.config/gh` already exists, the `ln -s` command will create an extra 
+# folder *inside* `.config/gh` that symlinks to `github-cli`
+# Thus, we want to make sure the folder does NOT exist so the symlink will actually be to ~/.config/gh
+if [ -e "$_REMOTE_USER_HOME/.config/gh" ]; then
+  echo "Moving existing gh folder to gh-old"
+  mv "$_REMOTE_USER_HOME/.config/gh" "$_REMOTE_USER_HOME/.config/gh-old"
+fi
 
 ln -s /dc/github-cli "$_REMOTE_USER_HOME/.config/gh"
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config/gh"
@@ -23,3 +31,5 @@ cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
 sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/github-cli
 EOF
 chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
+
+if [ -e "~/.config/gh" ]; then echo "yur"; else echo "nah"; fi;
