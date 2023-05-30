@@ -1,7 +1,3 @@
-## Notes
-
-- This feature assumes you have the `ghcr.io/devcontainers/features/github-cli` feature installed as well.
-
 ## OS and Architecture Support
 
 |        | amd64 | arm64 |
@@ -16,6 +12,7 @@
 
 | Version | Notes                                                            |
 | ------- | ---------------------------------------------------------------- |
+| 0.0.2   | `chown -R` the entire `~/.config` directory                      |
 | 0.0.1   | Rename existing ~/.config/gh folder to ~/.config/gh if it exists |
 | 0.0.0   | Initial Version                                                  |
 
