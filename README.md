@@ -10,7 +10,3 @@ This repo contains my custom devcontainer features.
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | [github-cli-persistence](./src/github-cli-persistence) | Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder across container instances. |
 
-## References
-
-- [Dev Container Features Starter Template](https://github.com/devcontainers/feature-starter)
-- [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence)
