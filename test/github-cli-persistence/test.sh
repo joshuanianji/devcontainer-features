@@ -5,12 +5,19 @@ set -e
 # Optional: Import test library
 source dev-container-features-test-lib
 
-# check that `gh --help` works
-check "help" gh --help 2>&1 >/dev/null | grep 'USAGE'
+# NOTE: this is an "auto-generated" test, which means it will be 
+# executed against an auto-generated devcontainer.json that
+# includes the 'github-cli-persistence' Feature with no options.
+#
+# https://github.com/devcontainers/cli/blob/main/docs/features/test.md
+#
+# From my tests, this means the `gh` CLI will not be installed:
+# Thus, here, I only check basic directory stuff
 
-# check that `.config/gh` and `/dc/github-cli` exist
-check "config" ls -la "$_REMOTE_USER_HOME/.config" | grep "gh"
-check "dc" ls -la /dc | grep 'github-cli'
+
+# check that `.config/gh` and `/dc/github-cli` exist`
+check "config" bash -c "ls -la ~/.config | grep 'gh'"
+check "dc" bash -c "ls -la /dc | grep 'github-cli'"
 
 
 # Report result
