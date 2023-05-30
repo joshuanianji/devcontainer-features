@@ -14,8 +14,9 @@
                 ]
             },
             "extensions": [
-                "mads-hartmann.bash-ide-vscode"
-            ]
+				"mads-hartmann.bash-ide-vscode",
+				"yzhang.markdown-all-in-one"
+			]
         }
     },
     "features": {
