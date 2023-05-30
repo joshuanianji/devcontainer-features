@@ -1,4 +1,4 @@
-name: "CI - Test Features"
+name: Tests
 on:
   push:
     branches:
