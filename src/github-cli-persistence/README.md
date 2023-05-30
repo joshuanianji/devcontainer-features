@@ -1,7 +1,7 @@
 
 # Github CLI Persistence (github-cli-persistence)
 
-Avoid extra logins from the Github CLI by preserving `~/.config/gh` folder across container instances.
+Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder across container instances.
 
 ## Example Usage
 
