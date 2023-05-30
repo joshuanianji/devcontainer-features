@@ -1,5 +1,7 @@
 # Devcontainer Features
 
+[![Tests](https://github.com/joshuanianji/devcontainer-features/actions/workflows/test.yaml/badge.svg)](https://github.com/joshuanianji/devcontainer-features/actions/workflows/test.yaml)
+
 This repo contains my custom devcontainer features.
 
 ## References
