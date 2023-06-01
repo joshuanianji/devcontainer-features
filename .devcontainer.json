@@ -15,7 +15,8 @@
             },
             "extensions": [
 				"mads-hartmann.bash-ide-vscode",
-				"yzhang.markdown-all-in-one"
+				"yzhang.markdown-all-in-one",
+				"github.vscode-github-actions"
 			]
         }
     },
