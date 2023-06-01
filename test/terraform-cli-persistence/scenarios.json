@@ -1,0 +1,9 @@
+{
+    "with_node": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+        "features": {
+            "terraform-cli-persistence": {},
+            "ghcr.io/devcontainers/features/terraform:1": {}
+        }
+    }
+}
