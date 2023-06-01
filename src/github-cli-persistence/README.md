@@ -31,6 +31,7 @@ Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder a
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 0.0.3   | Delete some unnecessary "echo" statements            |
 | 0.0.2   | `chown -R` the entire `~/.config` directory          |
 | 0.0.1   | Rename ~/.config/gh to ~/.config/gh-old if it exists |
 | 0.0.0   | Initial Version                                      |
