@@ -14,6 +14,7 @@ jobs:
       matrix:
         features:
           - github-cli-persistence
+          - terraform-cli-persistence
         baseImage:
           - debian:latest
           - ubuntu:latest
