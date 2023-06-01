@@ -33,5 +33,3 @@ cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
 sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/github-cli
 EOF
 chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
-
-if [ -e "~/.config/gh" ]; then echo "yur"; else echo "nah"; fi;
