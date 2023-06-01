@@ -10,8 +10,8 @@ source dev-container-features-test-lib
 
 
 # check that `~/.terraform.d` and `/dc/terraform-cli` exist`
-check "config" bash -c "ls -la | grep '.terraform.d'"
-check "dc" bash -c "ls -la /dc | grep 'terraform-cli'"
+check "~/.terraform.d existence" bash -c "ls -la ~ | grep '.terraform.d'"
+check "/dc/terraform-cli existence" bash -c "ls -la /dc | grep 'terraform-cli'"
 
 # check that `~/.terraform.d` is a symlink
 # https://unix.stackexchange.com/a/96910
