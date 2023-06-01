@@ -15,8 +15,8 @@ check "dc" bash -c "ls -la /dc | grep 'github-cli'"
 # check that the folders are owned by the user
 # `stat -c "%U %G" ~/.config` returns "$USER $GROUP", in this case "node node"
 # https://askubuntu.com/a/175060
-check "~/.config/gh owned by user" bash -c "if [[ \"$(stat -c "%U %G" ~/.config)\" != 'node node' ]]; then exit 1; fi;"
-check "/dc/github-cli owned by user" bash -c "if [[ \"$(stat -c "%U %G" /dc/github-cli)\" != 'node node' ]]; then exit 1; fi;"
+check "~/.config/gh owned by user" bash -c "test \"$(stat -c "%U %G" ~/.config)\" = 'node node'"
+check "/dc/github-cli owned by user" bash -c "test \"$(stat -c "%U %G" /dc/github-cli)\" = 'node node'"
 
 # Report result
 reportResults
