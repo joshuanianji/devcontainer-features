@@ -5,5 +5,19 @@
             "github-cli-persistence": {},
             "ghcr.io/devcontainers/features/github-cli": {}
         }
+    },
+    "mount_option": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+        "features": {
+            "github-cli-persistence": {
+                "mount": "test"
+            }
+        }
+    },
+    "mount_option_default": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+        "features": {
+            "github-cli-persistence": {}
+        }
     }
 }

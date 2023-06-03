@@ -33,3 +33,6 @@ cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
 sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/github-cli
 EOF
 chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
+
+# export $MOUNT variable
+echo "export MOUNT=$MOUNT" >> "$_REMOTE_USER_HOME/.bashrc"
