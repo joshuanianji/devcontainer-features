@@ -2,7 +2,7 @@
     "with_node": {
         "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
         "features": {
-            "github-cli-persistence": {},
+            "aws-cli-persistence": {},
             "ghcr.io/devcontainers/features/aws-cli": {}
         }
     }
