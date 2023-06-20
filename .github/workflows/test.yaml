@@ -15,6 +15,7 @@ jobs:
         features:
           - github-cli-persistence
           - terraform-cli-persistence
+          - aws-cli-persistence
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -34,8 +35,9 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - github-cli-persistence
+          - terraform-cli-persistence
+          - aws-cli-persistence
     steps:
       - uses: actions/checkout@v3
 
