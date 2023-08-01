@@ -13,35 +13,26 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 cleanup() {
-case "${ID}" in
-    debian|ubuntu)
-      rm -rf /var/lib/apt/lists/*
-    ;;
-  esac
+    rm -rf /var/lib/apt/lists/*
+}
+
+# Checks if packages are installed and installs them if not
+check_packages() {
+    if ! dpkg -s "$@" >/dev/null 2>&1; then
+        if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+            echo "Running apt-get update..."
+            apt-get update -y
+        fi
+        apt-get -y install --no-install-recommends "$@"
+    fi
 }
 
 cleanup
 
-# Checks if packages are installed and installs them if not
-check_packages() {
-  case "${ID}" in
-    debian|ubuntu)
-      if ! dpkg -s "$@" >/dev/null 2>&1; then
-        apt_get_update
-        apt-get -y install --no-install-recommends "$@"
-      fi
-    ;;
-    alpine)
-      if ! apk -e info "$@" >/dev/null 2>&1; then
-        apk add --no-cache "$@"
-      fi
-    ;;
-  esac
-}
-
 export DEBIAN_FRONTEND=noninteractive
 
-check_packages curl
+echo "Checking for curl..."
+check_packages curl ca-certificates
 
 install() {
     architecture="$(uname -m)"

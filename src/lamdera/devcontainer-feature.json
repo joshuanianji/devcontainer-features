@@ -14,5 +14,8 @@
             "default": "latest",
             "description": "Select or enter a Lamdera version."
         }
-    }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
 }
