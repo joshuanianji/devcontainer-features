@@ -12,7 +12,7 @@ The installation script looks at your OS architecture and version and interpolat
 ```bash
 curl "https://static.lamdera.com/bin/lamdera-$VERSION-linux-$ARCH"
 ```
-Based on my tests, the latest Lamdera version is the only one that works reliably.
+Based on my tests, v1.1.0 is the only one that works reliably.
 
 ## OS and Arch Support
 
