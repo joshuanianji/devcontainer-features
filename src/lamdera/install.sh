@@ -28,11 +28,11 @@ check_packages curl
 install() {
     architecture="$(uname -m)"
 
-    # the arch naming system for Lamdera uses "arm64" for arm and "x86_64" for amd64
+    # the architecture naming system for Lamdera uses "arm64" for arm and "x86_64" for amd64
     # basically, `uname -m` and `dpkg --print-architecture` by themselves won't suffice
-    if [[ $architecture = "x86_64" ]]; then
+    if [[ $architecture == "x86_64" ]]; then
         ARCH="x86_64"
-    elif [[ $architecture = "aarch64" ]]
+    elif [[ $architecture == "aarch64" ]]; then
         ARCH="arm64"
     else
         echo "Unsupported architecture: $architecture"
@@ -41,15 +41,15 @@ install() {
 
     # Hardcode the latest version of lamdera!!
     # TODO: fix this later!
-    if [[ $VERSION = "latest" ]]; then
+    if [[ $VERSION == "latest" ]]; then
         VERSION="1.1.0"
     fi
 
     # Download and install lamdera
     # Echo HTTP status code: https://stackoverflow.com/a/18262020
     echo "Downloading Lamdera version $VERSION for architecture $ARCH..."
-    STATUS=$(curl -s "https://static.lamdera.com/bin/lamdera-$VERSION-macos-$ARCH" -w %{http_code} -o /usr/local/bin/lamdera)
-    if [[ $STATUS = "404" ]]; then
+    STATUS=$(curl "https://static.lamdera.com/bin/lamdera-$VERSION-linux-$ARCH" -w %{http_code} -o /usr/local/bin/lamdera)
+    if [[ $STATUS == "404" ]]; then
         echo "Lamdera version $VERSION for architecture $ARCH does not exist!"
         exit 1
     fi
