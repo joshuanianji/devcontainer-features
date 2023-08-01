@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 # Clean up
@@ -10,15 +12,31 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+cleanup() {
+case "${ID}" in
+    debian|ubuntu)
+      rm -rf /var/lib/apt/lists/*
+    ;;
+  esac
+}
+
+cleanup
+
 # Checks if packages are installed and installs them if not
 check_packages() {
-    if ! dpkg -s "$@" > /dev/null 2>&1; then
-        if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
-            echo "Running apt-get update..."
-            apt-get update -y
-        fi
+  case "${ID}" in
+    debian|ubuntu)
+      if ! dpkg -s "$@" >/dev/null 2>&1; then
+        apt_get_update
         apt-get -y install --no-install-recommends "$@"
-    fi
+      fi
+    ;;
+    alpine)
+      if ! apk -e info "$@" >/dev/null 2>&1; then
+        apk add --no-cache "$@"
+      fi
+    ;;
+  esac
 }
 
 export DEBIAN_FRONTEND=noninteractive
@@ -63,7 +81,6 @@ echo "(*) Installing Lamdera CLI..."
 
 install
 
-# Clean up
-rm -rf /var/lib/apt/lists/*
+cleanup
 
 echo "Done!"
