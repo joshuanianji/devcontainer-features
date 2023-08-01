@@ -1,0 +1,21 @@
+{
+    "name": "Lamdera",
+    "id": "lamdera",
+    "version": "0.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/lamdera",
+    "description": "Installs the [Lamdera](https://dashboard.lamdera.app/) binary (v1.1.0 and later).",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "1.1.0"
+            ],
+            "default": "latest",
+            "description": "Select or enter a Lamdera version."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

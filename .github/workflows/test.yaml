@@ -16,6 +16,7 @@ jobs:
           - github-cli-persistence
           - terraform-cli-persistence
           - aws-cli-persistence
+          - lamdera
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -38,6 +39,7 @@ jobs:
           - github-cli-persistence
           - terraform-cli-persistence
           - aws-cli-persistence
+          - lamdera
     steps:
       - uses: actions/checkout@v3
 
