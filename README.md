@@ -11,3 +11,4 @@ This repo contains my custom devcontainer features.
 | [github-cli-persistence](./src/github-cli-persistence)       | Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder across container instances.      |
 | [terraform-cli-persistence](./src/terraform-cli-persistence) | Avoid extra logins from the Terraform CLI by preserving the `~/.terraform.d` folder across container instances. |
 | [aws-cli-persistence](./src/aws-cli-persistence)             | Avoid extra logins from the AWS CLI by preserving the `~/.aws` folder across container instances.               |
+| [lamdera](./src/lamdera)             | Installs the [Lamdera](https://dashboard.lamdera.app/) binary (v1.1.0 and later).               |
