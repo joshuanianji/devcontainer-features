@@ -42,6 +42,7 @@ jobs:
     needs: detect-changes
     runs-on: ubuntu-latest
     continue-on-error: true
+    if: ${{ needs.detect-changes.outputs.changes != '[]' }}
     strategy:
       matrix:
         features: ${{ fromJson(needs.detect-changes.outputs.changes) }}
@@ -62,6 +63,7 @@ jobs:
     needs: detect-changes
     runs-on: ubuntu-latest
     continue-on-error: true
+    if: ${{ needs.detect-changes.outputs.changes != '[]' }}
     strategy:
       matrix:
         features: ${{ fromJson(needs.detect-changes.outputs.changes) }}
