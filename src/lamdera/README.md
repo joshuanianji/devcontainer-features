@@ -1,7 +1,7 @@
 
 # Lamdera (lamdera)
 
-Installs the [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later).
+Installs [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later).
 
 ## Example Usage
 
@@ -16,12 +16,6 @@ Installs the [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack w
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Select or enter a Lamdera version. | string | latest |
-
-## Changelog
-
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
 
 ## Lamdera Versions
 
@@ -49,10 +43,11 @@ Other lamdera versions are not tested, but please submit an issue/PR if you need
 
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.1   | Update Docs     |
-| 0.0.0   | Initial Version |
+| Version | Notes             |
+| ------- | ----------------- |
+| 0.0.2   | Fix typos in Docs |
+| 0.0.1   | Update Docs       |
+| 0.0.0   | Initial Version   |
 
 ## References
 
