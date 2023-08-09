@@ -1,7 +1,7 @@
 {
     "name": "Lamdera",
     "id": "lamdera",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/lamdera",
     "description": "Installs the [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later).",
     "options": {

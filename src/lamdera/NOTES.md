@@ -28,6 +28,13 @@ Based on my tests, v1.1.0 is the only one that works reliably.
 
 Other lamdera versions are not tested, but please submit an issue/PR if you need to use them!
 
+## Changelog
+
+| Version | Notes           |
+| ------- | --------------- |
+| 0.0.1   | Update Docs     |
+| 0.0.0   | Initial Version |
+
 ## References
 
 - [Lamdera](https://dashboard.lamdera.app/docs/download) 
