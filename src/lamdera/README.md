@@ -1,7 +1,7 @@
 
 # Lamdera (lamdera)
 
-Installs the [Lamdera](https://dashboard.lamdera.app/) binary (v1.1.0 and later).
+Installs the [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later).
 
 ## Example Usage
 
