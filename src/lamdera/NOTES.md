@@ -1,9 +1,3 @@
-## Changelog
-
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
-
 ## Lamdera Versions
 
 **Latest tag is hardcoded to v1.1.0!** I'm not sure how to get the latest lamdera version automatically (without web scraping the lamdera site which won't be pretty), so currently this is the solution I have.
@@ -30,10 +24,11 @@ Other lamdera versions are not tested, but please submit an issue/PR if you need
 
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.1   | Update Docs     |
-| 0.0.0   | Initial Version |
+| Version | Notes             |
+| ------- | ----------------- |
+| 0.0.2   | Fix typos in Docs |
+| 0.0.1   | Update Docs       |
+| 0.0.0   | Initial Version   |
 
 ## References
 
