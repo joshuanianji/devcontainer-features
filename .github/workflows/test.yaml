@@ -31,8 +31,8 @@ jobs:
             import os
             for folder in os.listdir('src'):
                 print(f"{folder}:")
-                print(f"\t- '**/{folder}/**'")
-                print(f"\t- '.github/workflows/test.yaml'")
+                print(f"  - '**/{folder}/**'")
+                print(f"  - '.github/workflows/test.yaml'")
 
       - name: Paths Filter
         uses: dorny/paths-filter@v2
