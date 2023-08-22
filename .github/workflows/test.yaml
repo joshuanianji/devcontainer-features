@@ -29,7 +29,6 @@ jobs:
         with:
           script: |
             import os
-            print("Directory contents:")
             for folder in os.listdir('src'):
                 print(f"{folder}:")
                 print(f"\t- '**/{folder}/**'")
