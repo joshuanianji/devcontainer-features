@@ -2,7 +2,7 @@
 
 set -e
 
-# User is `vscode` in dev container
+# tests installing pnpm with a feature
 
 # Optional: Import test library
 source dev-container-features-test-lib
