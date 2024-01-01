@@ -32,6 +32,8 @@ The volume mount is called `global-devcontainer-pnpm-store`, so ensure that no o
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 0.1.1   | Fix mount name                                       |
+| 0.1.0   | Documentation                                        |
 | 0.0.0   | Initial Version                                      |
 
 ## References
