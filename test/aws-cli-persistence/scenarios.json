@@ -1,6 +1,6 @@
 {
     "with_node": {
-        "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
             "aws-cli-persistence": {},
             "ghcr.io/devcontainers/features/aws-cli": {}
