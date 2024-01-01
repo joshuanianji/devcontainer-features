@@ -4,7 +4,7 @@
 
 This feature does not install PNPM by itself and expects `pnpm` to be installed already, either by a base image or by a feature. It fails quietly if pnpm is not installed.
 
-To ensure that a pnpm feature is installed **before** `mount-pnpm-store`, you may need to utilize the [`overrideFeatureInstallOrder` property](https://containers.dev/implementors/features/#overrideFeatureInstallOrder), since the default feature installation order is based on ID (alphanumerically i think). Here is an example using `features/node`:
+If you are installing pnpm with a feature, you may need to ensure it is run **before** `mount-pnpm-store`. To make this work, use the [`overrideFeatureInstallOrder` property](https://containers.dev/implementors/features/#overrideFeatureInstallOrder), since the default feature installation order is based on ID (alphanumerically i think). Here is an example using `features/node`:
 
 ```json
     "image": "mcr.microsoft.com/devcontainers/base:bullseye",
