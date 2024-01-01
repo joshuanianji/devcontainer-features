@@ -1,8 +1,8 @@
 ## Important Implementation Details
 
-### Pnpm `store-dir`
+### pnpm `store-dir`
 
-This is opinionated, but I dislike the pnpm store being in the workspace since it seems cluttered. This feature sets the pnpm `store-dir` config to `~/.pnpm-store`, so it's out of sight. The home directory will be based on the `remoteUser` of the base image you have.
+This is opinionated, but I dislike the pnpm store being in the workspace as it adds clutter. This feature sets the pnpm `store-dir` config to `~/.pnpm-store`, so it's out of sight. The home directory will be based on the `remoteUser` of the base image you have.
 
 ### Ensuring pnpm is installed
 
