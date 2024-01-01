@@ -35,8 +35,9 @@ chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
 # if pnpm is not installed, print out a warning
 if type pnpm > /dev/null 2>&1; then
     echo "Setting pnpm store location to $_REMOTE_USER_HOME/.pnpm-store"
-    pnpm config set store-dir "$_REMOTE_USER_HOME/.pnpm-store"
-    export PNPM_STORE_PATH="$_REMOTE_USER_HOME/.pnpm-store"
+    # we have to run the `pnpm config set store-dir` as the remote user
+    # because the remote user is the one that will be using pnpm
+    runuser -l $_REMOTE_USER -c "pnpm config set store-dir $_REMOTE_USER_HOME/.pnpm-store --global"
 else
     echo "WARN: pnpm is not installed! Please ensure pnpm is installed and in your PATH."
     echo "WARN: pnpm store location will not be set."
