@@ -8,7 +8,7 @@
     "mounts": [
         {
             "source": "global-devcontainer-pnpm-store",
-            "target": "/dc/pnpm-store",
+            "target": "/dc/mounted-pnpm-store",
             "type": "volume"
         }
     ],
