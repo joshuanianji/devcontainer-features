@@ -1,0 +1,20 @@
+{
+    "with_node": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "mount-pnpm-store": {}
+        }
+    },
+    "with_pnpm": {
+        "image": "debian:bullseye-slim",
+        "features": {
+            "ghcr.io/devcontainers/features/node:1": {
+                "version": "20"
+            },
+            "mount-pnpm-store": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "ghcr.io/devcontainers/features/node", "./mount-pnpm-store"
+        ]
+    }
+}
