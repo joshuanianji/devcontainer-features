@@ -14,8 +14,8 @@ pnpm config list
 
 # check that `pnpm config get store-dir` equals /home/node/.pnpm-store
 pnpmConfig=$(pnpm config get store-dir)
-echo "pnpm config get store-dir: $pnpmConfig"
-check "config" bash -c test $pnpmConfig -eq "/home/node/.pnpm-store"
+echo "pnpm config get store-dir: '$pnpmConfig'"
+check "config" test $pnpmConfig = "/home/node/.pnpm-store"
 
 # Report result
 reportResults
