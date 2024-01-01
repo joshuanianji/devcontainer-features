@@ -11,14 +11,8 @@ if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
     exit 1
 fi
 
-# if pnpm is not installed, fail
-if ! pnpm --version >/dev/null 2>&1; then
-    echo "PNPM is not installed! Please ensure pnpm is installed and in your PATH."
-    exit 1
-fi
-
-# make /dc/pnpm-store folder if doesn't exist
-mkdir -p "/dc/pnpm-store"
+# make /dc/mounted-pnpm-store folder if doesn't exist
+mkdir -p "/dc/mounted-pnpm-store"
 
 # as to why we move around the folder, check `github-cli-persistence/install.sh`
 if [ -e "$_REMOTE_USER_HOME/.pnpm-store" ]; then
@@ -26,16 +20,24 @@ if [ -e "$_REMOTE_USER_HOME/.pnpm-store" ]; then
   mv "$_REMOTE_USER_HOME/.pnpm-store" "$_REMOTE_USER_HOME/.pnpm-store-old"
 fi
 
-ln -s /dc/pnpm-store "$_REMOTE_USER_HOME/.pnpm-store"
+ln -s /dc/mounted-pnpm-store "$_REMOTE_USER_HOME/.pnpm-store"
 # chown the entire `.config` folder because devcontainers creates 
 # a `~/.config/vscode-dev-containers` folder later on 
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$_REMOTE_USER_HOME/.pnpm-store"
 
 # chown mount (only attached on startup)
 cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
-sudo chown -R "$_REMOTE_USER:$_REMOTE_USER" /dc/pnpm-store
+sudo chown -R "$_REMOTE_USER:$_REMOTE_USER" /dc/mounted-pnpm-store
 EOF
 chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
 
 # set pnpm store location
-pnpm config set store-dir "$_REMOTE_USER_HOME/.pnpm-store"
+# if pnpm is not installed, print out a warning
+if ! pnpm --version >/dev/null 2>&1; then
+    echo "WARN: pnpm is not installed! Please ensure pnpm is installed and in your PATH."
+    echo "WARN: pnpm store location will not be set."
+else 
+    echo "Setting pnpm store location to $_REMOTE_USER_HOME/.pnpm-store"
+    pnpm config set store-dir "$_REMOTE_USER_HOME/.pnpm-store"
+fi
+
