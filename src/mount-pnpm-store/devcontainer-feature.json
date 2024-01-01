@@ -1,7 +1,7 @@
 {
-    "name": "Mount PNPM Store",
+    "name": "Mount pnpm Store",
     "id": "mount-pnpm-store",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/mount-pnpm-store",
     "description": "Mounts the pnpm store to a volume to share between multiple devcontainers, and sets pnpm store to ~/.pnpm-store. Fails if pnpm is not installed.",
     "options": {},
