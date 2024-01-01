@@ -21,8 +21,6 @@ if [ -e "$_REMOTE_USER_HOME/.pnpm-store" ]; then
 fi
 
 ln -s /dc/mounted-pnpm-store "$_REMOTE_USER_HOME/.pnpm-store"
-# chown the entire `.config` folder because devcontainers creates 
-# a `~/.config/vscode-dev-containers` folder later on 
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$_REMOTE_USER_HOME/.pnpm-store"
 
 # chown mount (only attached on startup)
