@@ -6,7 +6,7 @@
         }
     },
     "with_pnpm": {
-        "image": "debian:bullseye-slim",
+        "image": "mcr.microsoft.com/devcontainers/base:bullseye",
         "features": {
             "ghcr.io/devcontainers/features/node:1": {
                 "version": "20"
