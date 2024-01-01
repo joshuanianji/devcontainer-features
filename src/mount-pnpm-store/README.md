@@ -1,7 +1,7 @@
 
 # Mount pnpm Store (mount-pnpm-store)
 
-Mounts the pnpm store to a volume to share between multiple devcontainers, and sets pnpm store to ~/.pnpm-store.
+Sets pnpm store to ~/.pnpm-store and mounts it to a volume to share between multiple devcontainers
 
 ## Example Usage
 
@@ -51,6 +51,8 @@ The volume mount is called `global-devcontainer-pnpm-store`, so ensure that no o
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 0.1.1   | Fix mount name                                       |
+| 0.1.0   | Documentation                                        |
 | 0.0.0   | Initial Version                                      |
 
 ## References
