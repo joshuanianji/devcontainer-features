@@ -4,7 +4,7 @@ set -e
 echo "Activating feature 'aws-cli-persistence'"
 echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
 
-if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
+if [ -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
   echo "***********************************************************************************"
   echo "*** Require _REMOTE_USER and _REMOTE_USER_HOME to be set (by dev container CLI) ***"
   echo "***********************************************************************************"
@@ -24,8 +24,16 @@ ln -s /dc/aws-cli "$_REMOTE_USER_HOME/.aws"
 # chown .aws folder
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.aws"
 
-# chown mount (only attached on startup)
-cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
+# === chown mount
+
+# Bash
+cat <<EOF >>"$_REMOTE_USER_HOME/.bashrc"
 sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/aws-cli
 EOF
-chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
+chown -R "$_REMOTE_USER" "$_REMOTE_USER_HOME/.bashrc"
+
+# zsh
+cat <<EOF >>"$_REMOTE_USER_HOME/.zshrc"
+sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/aws-cli
+EOF
+chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.zshrc
