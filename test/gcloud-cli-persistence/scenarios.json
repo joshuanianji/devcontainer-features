@@ -1,0 +1,9 @@
+{
+    "with_node": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "gcloud-cli-persistence": {},
+            "ghcr.io/dhoeric/features/google-cloud-cli": {}
+        }
+    }
+}
