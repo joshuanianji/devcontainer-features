@@ -13,7 +13,8 @@
         }
     ],
     "installsAfter": [
-        "ghcr.io/dhoeric/features/google-cloud-cli"
+        "ghcr.io/dhoeric/features/google-cloud-cli",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "postCreateCommand": "/usr/local/share/gcloud-cli-persistence-post-create.sh"
 }

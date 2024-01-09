@@ -13,7 +13,8 @@
         }
     ],
     "installsAfter": [
-        "ghcr.io/devcontainers/features/github-cli"
+        "ghcr.io/devcontainers/features/github-cli",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "postCreateCommand": "/usr/local/share/github-cli-persistence-post-create.sh"
 }

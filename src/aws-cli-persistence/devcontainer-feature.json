@@ -13,7 +13,8 @@
         }
     ],
     "installsAfter": [
-        "ghcr.io/devcontainers/features/aws-cli"
+        "ghcr.io/devcontainers/features/aws-cli",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "postCreateCommand": "/usr/local/share/aws-cli-persistence-post-create.sh"
 }

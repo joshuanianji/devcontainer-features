@@ -13,7 +13,9 @@
         }
     ],
     "installsAfter": [
-        "ghcr.io/devcontainers/features/terraform"
+        "ghcr.io/devcontainers/features/terraform",
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "postCreateCommand": "/usr/local/share/terraform-cli-persistence-post-create.sh"
 }
