@@ -20,5 +20,13 @@
                 "configureZshAsDefaultShell": true
             }
         }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "ghcr.io/devcontainers/features/node:1": {},
+            "mount-pnpm-store": {}
+        },
+        "remoteUser": "root"
     }
 }

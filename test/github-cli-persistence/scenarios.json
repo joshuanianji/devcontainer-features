@@ -7,7 +7,7 @@
         }
     },
     "zsh_shell": {
-        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
         "features": {
             "github-cli-persistence": {},
             "ghcr.io/devcontainers/features/github-cli": {},
@@ -15,5 +15,13 @@
                 "configureZshAsDefaultShell": true
             }
         }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "github-cli-persistence": {},
+            "ghcr.io/devcontainers/features/github-cli": {}
+        },
+        "remoteUser": "root"
     }
 }

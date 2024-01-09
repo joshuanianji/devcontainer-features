@@ -15,5 +15,13 @@
                 "configureZshAsDefaultShell": true
             }
         }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "gcloud-cli-persistence": {},
+            "ghcr.io/dhoeric/features/google-cloud-cli": {}
+        },
+        "remoteUser": "root"
     }
 }
