@@ -7,7 +7,7 @@
         }
     },
     "zsh_shell": {
-        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
         "features": {
             "gcloud-cli-persistence": {},
             "ghcr.io/dhoeric/features/google-cloud-cli": {},
