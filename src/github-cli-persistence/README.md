@@ -7,7 +7,7 @@ Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder a
 
 ```json
 "features": {
-    "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:0": {}
+    "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:1": {}
 }
 ```
 
@@ -19,18 +19,15 @@ Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder a
 
 ## OS and Architecture Support
 
-|        | amd64 | arm64 |
-| ------ | ----- | ----- |
-| ubuntu | ✅     | ✔️     |
-| debian | ✅     | ✔️     |
-
-- ✅: Tested and verified on Github Actions
-- ✔️: Tested locally on my mac (but not on GHA)
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 1.0.0   | Support zsh + refactor                               |
 | 0.0.3   | Delete some unnecessary "echo" statements            |
 | 0.0.2   | `chown -R` the entire `~/.config` directory          |
 | 0.0.1   | Rename ~/.config/gh to ~/.config/gh-old if it exists |

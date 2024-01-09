@@ -7,7 +7,7 @@ Avoid extra logins from the Google Cloud CLI by preserving the `~/.config/gcloud
 
 ```json
 "features": {
-    "ghcr.io/joshuanianji/devcontainer-features/gcloud-cli-persistence:0": {}
+    "ghcr.io/joshuanianji/devcontainer-features/gcloud-cli-persistence:1": {}
 }
 ```
 
@@ -21,12 +21,14 @@ Avoid extra logins from the Google Cloud CLI by preserving the `~/.config/gcloud
 
 Architectures: `amd` and `arm`.
 OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.0   | Support zsh + refactor |
+| 0.0.0   | Initial Version        |
 
 
 ---

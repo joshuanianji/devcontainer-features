@@ -7,7 +7,7 @@ Avoid extra logins from the Terraform CLI by preserving the `~/.terraform.d` fol
 
 ```json
 "features": {
-    "ghcr.io/joshuanianji/devcontainer-features/terraform-cli-persistence:0": {}
+    "ghcr.io/joshuanianji/devcontainer-features/terraform-cli-persistence:1": {}
 }
 ```
 
@@ -17,11 +17,18 @@ Avoid extra logins from the Terraform CLI by preserving the `~/.terraform.d` fol
 |-----|-----|-----|-----|
 
 
+## OS and Architecture Support
+
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
+
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.0   | Support zsh + refactor |
+| 0.0.0   | Initial Version        |
 
 ## References
 
