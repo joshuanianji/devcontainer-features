@@ -20,8 +20,8 @@ check "/dc/aws-cli existence" bash -c "ls -la /dc | grep 'aws-cli'"
 echo "Checking ownership of ~/.aws and /dc/aws-cli (ensure it is owned by $USER)"
 stat -c "%U" /dc/aws-cli
 
-check "~/.aws owned by user" bash -c "test \"$(stat -c "%U" ~/.aws)\" = \"$USER\""
-check "/dc/aws-cli owned by user" bash -c "test \"$(stat -c "%U" /dc/aws-cli)\" = \"$USER\""
+check "~/.aws owned by user" bash -c "test \"$(stat -c "%U" ~/.aws)\" = $USER"
+check "/dc/aws-cli owned by user" bash -c "test \"$(stat -c "%U" /dc/aws-cli)\" = $USER"
 
 # Report result
 reportResults
