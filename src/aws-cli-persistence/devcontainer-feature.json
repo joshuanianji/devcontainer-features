@@ -1,7 +1,7 @@
 {
     "name": "AWS CLI Persistence",
     "id": "aws-cli-persistence",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/aws-cli-persistence",
     "description": "Avoid extra logins from the AWS CLI by preserving the `~/.aws` folder across container instances.",
     "options": {},
