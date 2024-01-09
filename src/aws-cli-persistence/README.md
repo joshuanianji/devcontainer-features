@@ -7,7 +7,7 @@ Avoid extra logins from the AWS CLI by preserving the `~/.aws` folder across con
 
 ```json
 "features": {
-    "ghcr.io/joshuanianji/devcontainer-features/aws-cli-persistence:0": {}
+    "ghcr.io/joshuanianji/devcontainer-features/aws-cli-persistence:1": {}
 }
 ```
 
@@ -17,11 +17,18 @@ Avoid extra logins from the AWS CLI by preserving the `~/.aws` folder across con
 |-----|-----|-----|-----|
 
 
+## OS and Architecture Support
+
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
+
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.0   | Support zsh + refactor |
+| 0.0.0   | Initial Version        |
 
 ## References
 
