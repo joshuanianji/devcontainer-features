@@ -13,5 +13,3 @@ This repo contains my custom devcontainer features.
 | [aws-cli-persistence](./src/aws-cli-persistence)             | Avoid extra logins from the AWS CLI by preserving the `~/.aws` folder across container instances.                       |
 | [lamdera](./src/lamdera)                                     | Installs [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later). |
 | [mount-pnpm-store](./src/mount-pnpm-store)                   | Mounts the pnpm store to a volume to share between multiple devcontainers.                                              |
-
-See #38
