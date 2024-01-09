@@ -44,7 +44,6 @@ else
     echo "WARN: pnpm is not installed! Please ensure pnpm is installed and in your PATH."
     echo "WARN: pnpm store location will not be set."
 fi
-pnpm config set store-dir ~/.pnpm-store --global
 
 # if the user is not root, chown /dc/mounted-pnpm-store to the user
 if [ "$(id -u)" != "0" ]; then
