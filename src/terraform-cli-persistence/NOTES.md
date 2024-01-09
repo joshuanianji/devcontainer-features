@@ -1,3 +1,9 @@
+## OS and Architecture Support
+
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`
+
 ## Changelog
 
 | Version | Notes                  |

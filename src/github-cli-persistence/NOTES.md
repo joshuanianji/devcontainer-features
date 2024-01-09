@@ -1,12 +1,8 @@
 ## OS and Architecture Support
 
-|        | amd64 | arm64 |
-| ------ | ----- | ----- |
-| ubuntu | ✅     | ✔️     |
-| debian | ✅     | ✔️     |
-
-- ✅: Tested and verified on Github Actions
-- ✔️: Tested locally on my mac (but not on GHA)
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`
 
 ## Changelog
 

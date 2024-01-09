@@ -1,3 +1,9 @@
+## OS and Architecture Support
+
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`
+
 ## Important Implementation Details
 
 ### pnpm `store-dir`
