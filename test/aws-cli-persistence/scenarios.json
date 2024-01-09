@@ -15,5 +15,13 @@
                 "configureZshAsDefaultShell": true
             }
         }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "aws-cli-persistence": {},
+            "ghcr.io/devcontainers/features/aws-cli": {}
+        },
+        "remoteUser": "root"
     }
 }
