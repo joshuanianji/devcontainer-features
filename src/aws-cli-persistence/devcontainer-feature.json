@@ -15,5 +15,5 @@
     "installsAfter": [
         "ghcr.io/devcontainers/features/aws-cli"
     ],
-    "postStartCommand": "/usr/local/share/aws-cli-persistence-post-create.sh"
+    "postCreateCommand": "/usr/local/share/aws-cli-persistence-post-create.sh"
 }

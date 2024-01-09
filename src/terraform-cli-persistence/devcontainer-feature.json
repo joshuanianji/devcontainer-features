@@ -15,5 +15,5 @@
     "installsAfter": [
         "ghcr.io/devcontainers/features/terraform"
     ],
-    "postCreateCommand": "sudo chown -R $USER:$USER /dc/terraform-cli"
+    "postCreateCommand": "/usr/local/share/terraform-cli-persistence-post-create.sh"
 }

@@ -15,5 +15,5 @@
     "installsAfter": [
         "ghcr.io/devcontainers/features/github-cli"
     ],
-    "postCreateCommand": "sudo chown -R $USER:$USER /dc/github-cli"
+    "postCreateCommand": "/usr/local/share/github-cli-persistence-post-create.sh"
 }

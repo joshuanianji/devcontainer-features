@@ -1,7 +1,9 @@
 #!/bin/sh
 set -e
 
-echo "Activating feature 'mount-pnpm-store'"
+FEATURE_ID="gcloud-cli-persistence"
+
+echo "Activating feature '$FEATURE_ID'"
 echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
 
 if [ -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
@@ -34,3 +36,23 @@ else
     echo "WARN: pnpm is not installed! Please ensure pnpm is installed and in your PATH."
     echo "WARN: pnpm store location will not be set."
 fi
+
+# --- Generate a '$FEATURE_ID-post-create.sh' script to be executed by the 'postCreateCommand' lifecycle hook
+# Looks like this is the best way to run a script in lifecycle hooks
+# Source: https://github.com/devcontainers/features/blob/562305d37b97d47331d96306ffc2a0a3cce55e64/src/git-lfs/install.sh#L190C1-L190C109
+POST_CREATE_SCRIPT_PATH="/usr/local/share/$FEATURE_ID-post-create.sh"
+
+tee "$POST_CREATE_SCRIPT_PATH" >/dev/null \
+    <<'EOF'
+#!/bin/sh
+
+set -e
+
+# if the user is not root, chown /dc/aws-cli to the user
+if [ "$(id -u)" != "0" ]; then
+    echo "Running post-start.sh for user $USER"
+    sudo chown -R "$USER:$USER" /dc/mounted-pnpm-store
+fi
+EOF
+
+chmod 755 "$POST_CREATE_SCRIPT_PATH"

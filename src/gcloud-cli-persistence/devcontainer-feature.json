@@ -15,5 +15,5 @@
     "installsAfter": [
         "ghcr.io/dhoeric/features/google-cloud-cli"
     ],
-    "postCreateCommand": "sudo chown -R $USER:$USER /dc/aws-cli"
+    "postCreateCommand": "/usr/local/share/gcloud-cli-persistence-post-create.sh"
 }

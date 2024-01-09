@@ -15,5 +15,5 @@
     "installsAfter": [
         "ghcr.io/devcontainers/features/node"
     ],
-    "postCreateCommand": "sudo chown -R $USER:$USER /dc/mounted-pnpm-store"
+    "postCreateCommand": "/usr/local/share/mount-pnpm-store-post-create.sh"
 }
