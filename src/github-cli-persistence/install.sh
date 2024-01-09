@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-FEATURE_ID="gcloud-cli-persistence"
+FEATURE_ID="github-cli-persistence"
 
 echo "Activating feature '$FEATURE_ID'"
 echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
