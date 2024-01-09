@@ -27,8 +27,7 @@ fi
 
 ln -s /dc/github-cli "$_REMOTE_USER_HOME/.config/gh"
 # chown the entire `.config` folder because devcontainers creates
-# a `~/.config/vscode-dev-containers` folder later on
-chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config"
+chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config/gh"
 
 # --- Generate a '$FEATURE_ID-post-create.sh' script to be executed by the 'postCreateCommand' lifecycle hook
 # Looks like this is the best way to run a script in lifecycle hooks

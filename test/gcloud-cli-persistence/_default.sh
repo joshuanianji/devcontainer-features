@@ -18,7 +18,6 @@ check "dc" bash -c "ls -la /dc | grep 'gcloud-cli'"
 # check that the folders are owned by the user
 # https://askubuntu.com/a/175060
 echo "Checking ownership of ~/.config/gcloud and /dc/gcloud-cli (ensure it is owned by $USER)"
-stat -c "%U" /dc/gcloud-cli
 
 check "~/.config/gloud owned by user" bash -c "test \"$(stat -c "%U" ~/.config/gcloud)\" = $USER"
 check "/dc/gcloud-cli owned by user" bash -c "test \"$(stat -c "%U" /dc/gcloud-cli)\" = $USER"

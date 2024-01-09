@@ -13,10 +13,11 @@ check "config" bash -c "ls -la ~/.config | grep 'gh'"
 check "dc" bash -c "ls -la /dc | grep 'github-cli'"
 
 # check that the folders are owned by the user
-# `stat -c "%U %G" ~/.config` returns "$USER $GROUP", in this case "node node"
 # https://askubuntu.com/a/175060
-check "~/.config/gh owned by user" bash -c "test \"$(stat -c "%U %G" ~/.config)\" = $USER"
-check "/dc/github-cli owned by user" bash -c "test \"$(stat -c "%U %G" /dc/github-cli)\" = $USER"
+echo "Checking ownership of ~/.config/gh and /dc/github-cli (ensure it is owned by $USER)"
+
+check "~/.config/gh owned by user" bash -c "test \"$(stat -c "%U" ~/.config/gh)\" = $USER"
+check "/dc/github-cli owned by user" bash -c "test \"$(stat -c "%U" /dc/github-cli)\" = $USER"
 
 # Report result
 reportResults

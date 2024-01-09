@@ -18,5 +18,11 @@ pnpmConfig=$(pnpm config get store-dir)
 echo "pnpm config get store-dir: '$pnpmConfig'"
 check "config" test $pnpmConfig = "$(echo ~)/.pnpm-store"
 
+# check that the folders are owned by the user
+# https://askubuntu.com/a/175060
+echo "Checking ownership of /dc/mounted-pnpm-store (ensure it is owned by $USER)"
+
+check "/dc/mounted-pnpm-store owned by user" bash -c "test \"$(stat -c "%U" /dc/mounted-pnpm-store)\" = $USER"
+
 # Report result
 reportResults
