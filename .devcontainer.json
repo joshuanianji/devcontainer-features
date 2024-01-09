@@ -23,9 +23,13 @@
         }
     },
     "features": {
+        // zsh as default shell for my dotfiles to work
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "configureZshAsDefaultShell": true
+        },
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:0": {}
+        "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:1": {}
     },
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
