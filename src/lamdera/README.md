@@ -29,14 +29,17 @@ Based on my tests, v1.1.0 is the only one that works reliably.
 
 ## OS and Architecture Support
 
-Architectures: `amd` and `arm`.
+Architectures: `amd` and `arm`
+
 OS: `ubuntu`, `debian`
+
 Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
 | Version | Notes                         |
 | ------- | ----------------------------- |
+| 1.0.1   | Fix Docs                      |
 | 1.0.0   | Support zsh/fish and refactor |
 | 0.0.2   | Fix typos in Docs             |
 | 0.0.1   | Update Docs                   |

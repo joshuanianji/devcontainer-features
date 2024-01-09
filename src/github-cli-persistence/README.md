@@ -19,14 +19,17 @@ Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder a
 
 ## OS and Architecture Support
 
-Architectures: `amd` and `arm`.
+Architectures: `amd` and `arm`
+
 OS: `ubuntu`, `debian`
+
 Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 1.0.1   | Fix Docs                                             |
 | 1.0.0   | Support zsh + refactor                               |
 | 0.0.3   | Delete some unnecessary "echo" statements            |
 | 0.0.2   | `chown -R` the entire `~/.config` directory          |
