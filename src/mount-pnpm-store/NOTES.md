@@ -30,11 +30,12 @@ The volume mount is called `global-devcontainer-pnpm-store`, so ensure that no o
 
 ## Changelog
 
-| Version | Notes                                                |
-| ------- | ---------------------------------------------------- |
-| 0.1.1   | Fix mount name                                       |
-| 0.1.0   | Documentation                                        |
-| 0.0.0   | Initial Version                                      |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.0   | Support zsh + refactor |
+| 0.1.1   | Fix mount name         |
+| 0.1.0   | Documentation          |
+| 0.0.0   | Initial Version        |
 
 ## References
 

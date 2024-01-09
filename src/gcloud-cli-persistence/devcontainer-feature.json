@@ -1,7 +1,7 @@
 {
     "name": "Google Cloud CLI Persistence",
     "id": "gcloud-cli-persistence",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/gcloud-cli-persistence",
     "description": "Avoid extra logins from the Google Cloud CLI by preserving the `~/.config/gcloud` folder across container instances.",
     "options": {},
