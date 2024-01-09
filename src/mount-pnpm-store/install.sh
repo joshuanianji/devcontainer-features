@@ -1,10 +1,12 @@
 #!/bin/sh
 set -e
 
-echo "Activating feature 'mount-pnpm-store'"
+FEATURE_ID="mount-pnpm-store"
+
+echo "Activating feature '$FEATURE_ID'"
 echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
 
-if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
+if [ -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
     echo "***********************************************************************************"
     echo "*** Require _REMOTE_USER and _REMOTE_USER_HOME to be set (by dev container CLI) ***"
     echo "***********************************************************************************"
@@ -16,27 +18,38 @@ mkdir -p "/dc/mounted-pnpm-store"
 
 # as to why we move around the folder, check `github-cli-persistence/install.sh`
 if [ -e "$_REMOTE_USER_HOME/.pnpm-store" ]; then
-  echo "Moving existing .pnpm-store folder to .pnpm-store-old"
-  mv "$_REMOTE_USER_HOME/.pnpm-store" "$_REMOTE_USER_HOME/.pnpm-store-old"
+    echo "Moving existing .pnpm-store folder to .pnpm-store-old"
+    mv "$_REMOTE_USER_HOME/.pnpm-store" "$_REMOTE_USER_HOME/.pnpm-store-old"
 fi
 
 ln -s /dc/mounted-pnpm-store "$_REMOTE_USER_HOME/.pnpm-store"
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$_REMOTE_USER_HOME/.pnpm-store"
 
-# chown mount (only attached on startup)
-cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
-sudo chown -R "$_REMOTE_USER:$_REMOTE_USER" /dc/mounted-pnpm-store
-EOF
-chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
+# --- Generate a '$FEATURE_ID-post-create.sh' script to be executed by the 'postCreateCommand' lifecycle hook
+# Looks like this is the best way to run a script in lifecycle hooks
+# Source: https://github.com/devcontainers/features/blob/562305d37b97d47331d96306ffc2a0a3cce55e64/src/git-lfs/install.sh#L190C1-L190C109
+POST_CREATE_SCRIPT_PATH="/usr/local/share/$FEATURE_ID-post-create.sh"
 
-# set pnpm store location
-# if pnpm is not installed, print out a warning
-if type pnpm > /dev/null 2>&1; then
+tee "$POST_CREATE_SCRIPT_PATH" >/dev/null \
+    <<'EOF'
+#!/bin/sh
+
+set -e
+
+# set pnpm config (if it's installed)
+if type pnpm >/dev/null 2>&1; then
     echo "Setting pnpm store location to $_REMOTE_USER_HOME/.pnpm-store"
-    # we have to run the `pnpm config set store-dir` as the remote user
-    # because the remote user is the one that will be using pnpm
-    runuser -l $_REMOTE_USER -c "pnpm config set store-dir $_REMOTE_USER_HOME/.pnpm-store --global"
+    pnpm config set store-dir ~/.pnpm-store --global
 else
     echo "WARN: pnpm is not installed! Please ensure pnpm is installed and in your PATH."
     echo "WARN: pnpm store location will not be set."
 fi
+
+# if the user is not root, chown /dc/mounted-pnpm-store to the user
+if [ "$(id -u)" != "0" ]; then
+    echo "Running post-start.sh for user $USER"
+    sudo chown -R "$USER:$USER" /dc/mounted-pnpm-store
+fi
+EOF
+
+chmod 755 "$POST_CREATE_SCRIPT_PATH"

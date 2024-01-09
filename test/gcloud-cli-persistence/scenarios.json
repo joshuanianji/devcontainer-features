@@ -2,8 +2,34 @@
     "with_node": {
         "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
-            "gcloud-cli-persistence": {},
-            "ghcr.io/dhoeric/features/google-cloud-cli": {}
+            "ghcr.io/dhoeric/features/google-cloud-cli": {},
+            "gcloud-cli-persistence": {}
         }
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
+            },
+            "ghcr.io/dhoeric/features/google-cloud-cli": {},
+            "gcloud-cli-persistence": {}
+        }
+    },
+    "fish_shell": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
+            "ghcr.io/dhoeric/features/google-cloud-cli": {},
+            "gcloud-cli-persistence": {}
+        }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "ghcr.io/dhoeric/features/google-cloud-cli": {},
+            "gcloud-cli-persistence": {}
+        },
+        "remoteUser": "root"
     }
 }

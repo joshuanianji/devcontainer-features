@@ -8,27 +8,20 @@ curl "https://static.lamdera.com/bin/lamdera-$VERSION-linux-$ARCH"
 ```
 Based on my tests, v1.1.0 is the only one that works reliably.
 
-## OS and Arch Support
+## OS and Architecture Support
 
-`v1.1.0` Supports the following OS and architectures:
-
-|        | amd64 | arm64 |
-| ------ | ----- | ----- |
-| ubuntu | ✅     | ✔️     |
-| debian | ✅     | ✔️     |
-
-- ✅: Tested and verified on Github Actions
-- ✔️: Tested locally on my mac (but not on GHA)
-
-Other lamdera versions are not tested, but please submit an issue/PR if you need to use them!
+Architectures: `amd` and `arm`.
+OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
-| Version | Notes             |
-| ------- | ----------------- |
-| 0.0.2   | Fix typos in Docs |
-| 0.0.1   | Update Docs       |
-| 0.0.0   | Initial Version   |
+| Version | Notes                         |
+| ------- | ----------------------------- |
+| 1.0.0   | Support zsh/fish and refactor |
+| 0.0.2   | Fix typos in Docs             |
+| 0.0.1   | Update Docs                   |
+| 0.0.0   | Initial Version               |
 
 ## References
 

@@ -5,16 +5,34 @@
             "mount-pnpm-store": {}
         }
     },
-    "with_pnpm": {
+    "pnpm_from_feature": {
         "image": "mcr.microsoft.com/devcontainers/base:bullseye",
         "features": {
-            "ghcr.io/devcontainers/features/node:1": {
-                "version": "20"
+            "ghcr.io/devcontainers/features/node:1": {},
+            "mount-pnpm-store": {}
+        }
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
             },
             "mount-pnpm-store": {}
+        }
+    },
+    "fish_shell": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
+            "mount-pnpm-store": {}
+        }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "mount-pnpm-store": {}
         },
-        "overrideFeatureInstallOrder": [
-            "ghcr.io/devcontainers/features/node", "./mount-pnpm-store"
-        ]
+        "remoteUser": "root"
     }
 }

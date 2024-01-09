@@ -1,7 +1,7 @@
 {
     "name": "Terraform CLI Persistence",
     "id": "terraform-cli-persistence",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/terraform-cli-persistence",
     "description": "Avoid extra logins from the Terraform CLI by preserving the `~/.terraform.d` folder across container instances.",
     "options": {},
@@ -13,6 +13,9 @@
         }
     ],
     "installsAfter": [
-        "ghcr.io/devcontainers/features/terraform"
-    ]
+        "ghcr.io/devcontainers/features/terraform",
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+    ],
+    "postCreateCommand": "/usr/local/share/terraform-cli-persistence-post-create.sh"
 }

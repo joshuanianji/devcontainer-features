@@ -2,9 +2,11 @@
 
 Architectures: `amd` and `arm`.
 OS: `ubuntu`, `debian`
+Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 0.0.0   | Initial Version |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.0   | Support zsh + refactor |
+| 0.0.0   | Initial Version        |

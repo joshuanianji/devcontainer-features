@@ -1,7 +1,7 @@
 {
     "name": "Mount pnpm Store",
     "id": "mount-pnpm-store",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/mount-pnpm-store",
     "description": "Sets pnpm store to ~/.pnpm-store and mounts it to a volume to share between multiple devcontainers",
     "options": {},
@@ -12,5 +12,10 @@
             "type": "volume"
         }
     ],
-    "installsAfter": []
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/node",
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+    ],
+    "postCreateCommand": "/usr/local/share/mount-pnpm-store-post-create.sh"
 }

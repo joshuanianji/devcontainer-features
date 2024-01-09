@@ -14,12 +14,12 @@
                 ]
             },
             "extensions": [
-				"mads-hartmann.bash-ide-vscode",
-				"yzhang.markdown-all-in-one",
-				"github.vscode-github-actions",
-				"GitHub.copilot",
-				"foxundermoon.shell-format"
-			]
+                "mads-hartmann.bash-ide-vscode",
+                "yzhang.markdown-all-in-one",
+                "github.vscode-github-actions",
+                "GitHub.copilot",
+                "foxundermoon.shell-format"
+            ]
         }
     },
     "features": {
@@ -27,6 +27,5 @@
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:0": {}
     },
-    "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
