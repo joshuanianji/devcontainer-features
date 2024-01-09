@@ -2,6 +2,9 @@
 
 set -e
 
+# This is the default test script that tests everything
+# It is not run as a scenario, but is run by other test scripts.
+
 # Optional: Import test library
 source dev-container-features-test-lib
 

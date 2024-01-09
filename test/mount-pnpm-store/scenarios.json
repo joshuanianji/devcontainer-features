@@ -15,16 +15,22 @@
     "zsh_shell": {
         "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
-            "mount-pnpm-store": {},
             "ghcr.io/devcontainers/features/common-utils:2": {
                 "configureZshAsDefaultShell": true
-            }
+            },
+            "mount-pnpm-store": {}
+        }
+    },
+    "fish_shell": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
+            "mount-pnpm-store": {}
         }
     },
     "root_user": {
         "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
-            "ghcr.io/devcontainers/features/node:1": {},
             "mount-pnpm-store": {}
         },
         "remoteUser": "root"

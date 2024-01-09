@@ -2,14 +2,6 @@
 
 set -e
 
-# Optional: Import test library
-source dev-container-features-test-lib
-
-# check that running the binary by itself works
-check "normal" bash -c "lamdera"
-
-# check version
-check "version" bash -c "lamdera --version"
-
-# Report result
-reportResults
+# Run default test script (in same folder)
+# See: https://github.com/devcontainers/features/blob/562305d37b97d47331d96306ffc2a0a3cce55e64/test/azure-cli/install_extensions_bookworm.sh
+./_default.sh

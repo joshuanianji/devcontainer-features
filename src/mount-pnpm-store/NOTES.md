@@ -2,7 +2,7 @@
 
 Architectures: `amd` and `arm`.
 OS: `ubuntu`, `debian`
-Shells: `bash`, `zsh`
+Shells: `bash`, `zsh`, `fish`
 
 ## Important Implementation Details
 
