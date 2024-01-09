@@ -12,5 +12,8 @@
             "type": "volume"
         }
     ],
-    "installsAfter": []
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/node"
+    ],
+    "postCreateCommand": "sudo chown -R $USER:$USER /dc/mounted-pnpm-store"
 }

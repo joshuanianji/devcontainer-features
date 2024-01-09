@@ -4,7 +4,7 @@ set -e
 echo "Activating feature 'terraform-cli-persistence'"
 echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
 
-if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
+if [ -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
   echo "***********************************************************************************"
   echo "*** Require _REMOTE_USER and _REMOTE_USER_HOME to be set (by dev container CLI) ***"
   echo "***********************************************************************************"
@@ -21,12 +21,6 @@ if [ -e "$_REMOTE_USER_HOME/.terraform.d" ]; then
 fi
 
 ln -s /dc/terraform-cli "$_REMOTE_USER_HOME/.terraform.d"
-# chown the entire `.config` folder because devcontainers creates 
-# a `~/.config/vscode-dev-containers` folder later on 
+# chown the entire `.config` folder because devcontainers creates
+# a `~/.config/vscode-dev-containers` folder later on
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.terraform.d"
-
-# chown mount (only attached on startup)
-cat << EOF >> "$_REMOTE_USER_HOME/.bashrc"
-sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/terraform-cli
-EOF
-chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc

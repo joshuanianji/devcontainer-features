@@ -14,5 +14,6 @@
     ],
     "installsAfter": [
         "ghcr.io/devcontainers/features/github-cli"
-    ]
+    ],
+    "postCreateCommand": "sudo chown -R $USER:$USER /dc/github-cli"
 }

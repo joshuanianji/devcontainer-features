@@ -8,13 +8,17 @@
     "with_pnpm": {
         "image": "mcr.microsoft.com/devcontainers/base:bullseye",
         "features": {
-            "ghcr.io/devcontainers/features/node:1": {
-                "version": "20"
-            },
+            "ghcr.io/devcontainers/features/node:1": {},
             "mount-pnpm-store": {}
-        },
-        "overrideFeatureInstallOrder": [
-            "ghcr.io/devcontainers/features/node", "./mount-pnpm-store"
-        ]
+        }
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "mount-pnpm-store": {},
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
+            }
+        }
     }
 }

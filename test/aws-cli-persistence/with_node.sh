@@ -15,6 +15,9 @@ check "/dc/aws-cli existence" bash -c "ls -la /dc | grep 'aws-cli'"
 # check that the folders are owned by the user
 # `stat -c "%U %G" ~/.aws` returns "$USER $GROUP", in this case "node node"
 # https://askubuntu.com/a/175060
+echo "Checking ownership of ~/.aws and /dc/aws-cli"
+stat -c "%U %G" /dc/aws-cli
+
 check "~/.aws owned by user" bash -c "test \"$(stat -c "%U %G" ~/.aws)\" = 'node node'"
 check "/dc/aws-cli owned by user" bash -c "test \"$(stat -c "%U %G" /dc/aws-cli)\" = 'node node'"
 

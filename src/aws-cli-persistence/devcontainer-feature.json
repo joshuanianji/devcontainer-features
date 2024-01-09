@@ -14,5 +14,6 @@
     ],
     "installsAfter": [
         "ghcr.io/devcontainers/features/aws-cli"
-    ]
+    ],
+    "postCreateCommand": "sudo chown -R $USER:$USER /dc/aws-cli"
 }

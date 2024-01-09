@@ -14,5 +14,6 @@
     ],
     "installsAfter": [
         "ghcr.io/devcontainers/features/terraform"
-    ]
+    ],
+    "postCreateCommand": "sudo chown -R $USER:$USER /dc/terraform-cli"
 }

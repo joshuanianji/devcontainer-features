@@ -5,5 +5,15 @@
             "github-cli-persistence": {},
             "ghcr.io/devcontainers/features/github-cli": {}
         }
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "github-cli-persistence": {},
+            "ghcr.io/devcontainers/features/github-cli": {},
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
+            }
+        }
     }
 }

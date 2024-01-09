@@ -23,17 +23,3 @@ fi
 ln -s /dc/aws-cli "$_REMOTE_USER_HOME/.aws"
 # chown .aws folder
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.aws"
-
-# === chown mount
-
-# Bash
-cat <<EOF >>"$_REMOTE_USER_HOME/.bashrc"
-sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/aws-cli
-EOF
-chown -R "$_REMOTE_USER" "$_REMOTE_USER_HOME/.bashrc"
-
-# zsh
-cat <<EOF >>"$_REMOTE_USER_HOME/.zshrc"
-sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/aws-cli
-EOF
-chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.zshrc

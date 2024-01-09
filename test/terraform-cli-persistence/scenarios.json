@@ -5,5 +5,15 @@
             "terraform-cli-persistence": {},
             "ghcr.io/devcontainers/features/terraform:1": {}
         }
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "terraform-cli-persistence": {},
+            "ghcr.io/devcontainers/features/terraform:1": {},
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
+            }
+        }
     }
 }

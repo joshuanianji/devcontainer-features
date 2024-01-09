@@ -27,9 +27,3 @@ ln -s /dc/gcloud-cli "$_REMOTE_USER_HOME/.config/gcloud"
 # chown the entire `.config` folder because devcontainers creates
 # a `~/.config/vscode-dev-containers` folder later on
 chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config"
-
-# chown mount (only attached on startup)
-cat <<EOF >>"$_REMOTE_USER_HOME/.bashrc"
-sudo chown -R "${_REMOTE_USER}:${_REMOTE_USER}" /dc/gcloud-cli
-EOF
-chown -R $_REMOTE_USER $_REMOTE_USER_HOME/.bashrc
