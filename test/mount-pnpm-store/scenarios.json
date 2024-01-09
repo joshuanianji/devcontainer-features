@@ -5,7 +5,7 @@
             "mount-pnpm-store": {}
         }
     },
-    "with_pnpm": {
+    "pnpm_from_feature": {
         "image": "mcr.microsoft.com/devcontainers/base:bullseye",
         "features": {
             "ghcr.io/devcontainers/features/node:1": {},
@@ -22,7 +22,7 @@
         }
     },
     "fish_shell": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
             "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
             "mount-pnpm-store": {}
