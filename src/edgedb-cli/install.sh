@@ -6,6 +6,17 @@ LIFECYCLE_SCRIPTS_DIR="/usr/local/share/edgedb-cli/scripts"
 
 set -e
 
+# Checks if packages are installed and installs them if not
+check_packages() {
+    if ! dpkg -s "$@" >/dev/null 2>&1; then
+        if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+            echo "Running apt-get update..."
+            apt-get update -y
+        fi
+        apt-get -y install --no-install-recommends "$@"
+    fi
+}
+
 create_cache_dir() {
     if [ -d "$1" ]; then
         echo "Cache directory $1 already exists. Skip creation..."
@@ -23,42 +34,48 @@ create_cache_dir() {
 }
 
 create_symlink_dir() {
-    # ln -s target_dir source_dir
-    local source_dir=$1
-    local target_dir=$2
+    # local dir is the folder edgedb will use
+    # cache_dir is the /dc/edgedb-cli folder
+    local local_dir=$1
+    local cache_dir=$2
     local username=$3
 
-    if [ -d "$source_dir" ]; then
-        echo "Symlink $source_dir to $target_dir..."
-        ln -s "$source_dir" "$target_dir"
-    else
-        echo "Creating source dir $source_dir..."
-        mkdir -p "$source_dir"
-    fi
+    runuser -u "$username" -- mkdir -p "$(dirname "$local_dir")"
+    runuser -u "$username" -- mkdir -p "$cache_dir"
 
     # if the folder we want to symlink already exists, the ln -s command will create a folder inside the existing folder
-    if [ -e "$source_dir" ]; then
-        echo "Moving existing $source_dir folder to $source_dir-old"
-        mv "$source_dir" "$source_dir-old"
+    if [ -e "$local_dir" ]; then
+        echo "Moving existing $local_dir folder to $local_dir-old"
+        mv "$local_dir" "$local_dir-old"
     fi
 
-    echo "Symlink $source_dir to $target_dir..."
-    ln -s "$target_dir" "$source_dir"
-
-    echo "Change owner of $source_dir to $username..."
-    chown -R "$username:$username" "$source_dir"
+    echo "Symlink $local_dir to $cache_dir for $username..."
+    runuser -u "$username" -- ln -s "$cache_dir" "$local_dir"
 }
 
 install_edgedb() {
+    local username=$1
+
     echo "Installing EdgeDB CLI..."
-    curl https://sh.edgedb.com --proto '=https' -sSf1 | sh -s -- -y
+    curl https://sh.edgedb.com --proto '=https' -sSf1 -o /tmp/edgedb-cli.sh
+    chmod +x /tmp/edgedb-cli.sh
+
+    # install edgedb for a specific user if possible
+    echo "Installing EdgeDB CLI for $username..."
+    if [ -z "$username" ]; then
+        /tmp/edgedb-cli.sh -y
+    else
+        runuser -u "$username" -- /tmp/edgedb-cli.sh -y
+    fi
 }
 
 export DEBIAN_FRONTEND=noninteractive
 
+check_packages curl ca-certificates
+
 create_cache_dir "/dc/edgedb-cli" "${USERNAME}"
 create_symlink_dir "$_REMOTE_USER_HOME/.local/share/edgedb" "/dc/edgedb-cli" "${USERNAME}"
-install_edgedb
+install_edgedb "${USERNAME}"
 
 # Set Lifecycle scripts
 if [ -f oncreate.sh ]; then
