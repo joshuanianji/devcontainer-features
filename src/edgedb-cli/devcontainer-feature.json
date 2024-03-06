@@ -23,5 +23,5 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
-    "onCreateCommand": "/usr/local/share/edgedb-cli/oncreate.sh"
+    "onCreateCommand": "/usr/local/share/edgedb-cli/scripts/oncreate.sh"
 }
