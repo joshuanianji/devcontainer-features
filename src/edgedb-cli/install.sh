@@ -73,8 +73,14 @@ export DEBIAN_FRONTEND=noninteractive
 
 check_packages curl ca-certificates
 
-create_cache_dir "/dc/edgedb-cli" "${USERNAME}"
-create_symlink_dir "$_REMOTE_USER_HOME/.local/share/edgedb" "/dc/edgedb-cli" "${USERNAME}"
+# cache data directory
+create_cache_dir "/dc/edgedb-cli/data" "${USERNAME}"
+create_symlink_dir "$_REMOTE_USER_HOME/.local/share/edgedb" "/dc/edgedb-cli/data" "${USERNAME}"
+
+# cache config directory
+create_cache_dir "/dc/edgedb-cli/config" "${USERNAME}"
+create_symlink_dir "$_REMOTE_USER_HOME/.config/edgedb" "/dc/edgedb-cli/config" "${USERNAME}"
+
 install_edgedb "${USERNAME}"
 
 # Set Lifecycle scripts

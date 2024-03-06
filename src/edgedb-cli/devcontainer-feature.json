@@ -1,9 +1,9 @@
 {
     "name": "EdgeDB",
     "id": "edgedb-cli",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/edgedb-cli",
-    "description": "EdgeDB CLI via the official installation script. Includes the VSCode extension and mounts ~/.local/share/edgedb for data persistence.",
+    "description": "EdgeDB CLI via the official installation script. Includes the VSCode extension and mounts the config and data folder.",
     "options": {},
     "customizations": {
         "vscode": {
