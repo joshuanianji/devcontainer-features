@@ -11,17 +11,23 @@ source dev-container-features-test-lib
 # check that the command is available
 check "help" bash -c "edgedb --help | grep 'Usage'"
 
-# check that `.config/gh` and `/dc/github-cli` exist under the user (should be node)
+# check that data directories exist
 check "~/.local/share/edgedb exists" bash -c "ls -la ~/.local/share | grep 'edgedb'"
-check "/dc/edgedb-cli exists" bash -c "ls -la /dc | grep 'edgedb-cli'"
+check "/dc/edgedb-cli/data exists" bash -c "ls -la /dc/edgedb-cli | grep 'data'"
+
+# check that config directories exist
+check "~/.config/edgedb exists" bash -c "ls -la ~/.config | grep 'edgedb'"
+check "/dc/edgedb-cli exists" bash -c "ls -la /dc/edgedb-cli | grep 'config'"
 
 # check that the folders are owned by the user
 # https://askubuntu.com/a/175060
-echo "Checking ownership of ~/.local/share/edgedb and /dc/edgedb-cli (ensure it is owned by $USER)"
-ls -al ~/.local/share/
+echo "Checking ownership of ~/.local/share/edgedb/data and /dc/edgedb-cli/data (ensure it is owned by $USER)"
 
 check "~/.local/share/edgedb owned by user" bash -c "test \"$(stat -c "%U" ~/.local/share/edgedb)\" = $USER"
-check "/dc/edgedb-cli owned by user" bash -c "test \"$(stat -c "%U" /dc/edgedb-cli)\" = $USER"
+check "/dc/edgedb-cli/data owned by user" bash -c "test \"$(stat -c "%U" /dc/edgedb-cli/data)\" = $USER"
+
+check "~/.config/edgedb owned by user" bash -c "test \"$(stat -c "%U" ~/.config/edgedb)\" = $USER"
+check "/dc/edgedb-cli/config owned by user" bash -c "test \"$(stat -c "%U" /dc/edgedb-cli/config)\" = $USER"
 
 # Report result
 reportResults
