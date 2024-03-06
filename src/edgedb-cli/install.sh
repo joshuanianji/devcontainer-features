@@ -49,10 +49,16 @@ create_symlink_dir() {
     chown -R "$username:$username" "$source_dir"
 }
 
+install_edgedb() {
+    echo "Installing EdgeDB CLI..."
+    curl https://sh.edgedb.com --proto '=https' -sSf1 | sh -s -- -y
+}
+
 export DEBIAN_FRONTEND=noninteractive
 
 create_cache_dir "/dc/edgedb-cli" "${USERNAME}"
 create_symlink_dir "$_REMOTE_USER_HOME/.local/share/edgedb" "/dc/edgedb-cli" "${USERNAME}"
+install_edgedb
 
 # Set Lifecycle scripts
 if [ -f oncreate.sh ]; then
