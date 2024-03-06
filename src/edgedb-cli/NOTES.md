@@ -8,6 +8,7 @@ Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
-| Version | Notes           |
-| ------- | --------------- |
-| 1.0.0   | Initial Version |
+| Version | Notes                  |
+| ------- | ---------------------- |
+| 1.0.1   | Fix for non-root users |
+| 1.0.0   | Initial Version        |
