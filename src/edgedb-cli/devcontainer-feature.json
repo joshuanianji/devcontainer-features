@@ -1,0 +1,27 @@
+{
+    "name": "EdgeDB",
+    "id": "edgedb-cli",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/edgedb-cli",
+    "description": "Installs the EdgeDB CLI via the official installation script as well as the VSCode extension. ",
+    "options": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "magicstack.edgedb"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "source": "${devcontainerId}-edgedb-cli",
+            "target": "/dc/edgedb-cli",
+            "type": "volume"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+    ],
+    "onCreateCommand": "/usr/local/share/edgedb-cli/oncreate.sh"
+}
