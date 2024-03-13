@@ -1,6 +1,6 @@
 ## Deprecation notice
 
-This Feature was deprecated in favor of lamdera's NPM package. Lamdera versioning is much better and it's easier to install and manage.
+This Feature was deprecated in favor of lamdera's NPM package. Using NPM is much easier to control and manage, and it's now the recommended way to install lamdera.
 
 ## Lamdera Versions
 
