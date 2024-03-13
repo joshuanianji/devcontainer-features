@@ -1,51 +1,51 @@
 #!/bin/sh
 set -e
 
+USERNAME=${USERNAME:-${_REMOTE_USER}}
 FEATURE_ID="gcloud-cli-persistence"
+LIFECYCLE_SCRIPTS_DIR="/usr/local/share/${FEATURE_ID}/scripts"
 
-echo "Activating feature '$FEATURE_ID'"
-echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
+create_cache_dir() {
+    if [ -d "$1" ]; then
+        echo "Cache directory $1 already exists. Skip creation..."
+    else
+        echo "Create cache directory $1..."
+        mkdir -p "$1"
+    fi
 
-if [ -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
-    echo "***********************************************************************************"
-    echo "*** Require _REMOTE_USER and _REMOTE_USER_HOME to be set (by dev container CLI) ***"
-    echo "***********************************************************************************"
-    exit 1
+    if [ -z "$2" ]; then
+        echo "No username provided. Skip chown..."
+    else
+        echo "Change owner of $1 to $2..."
+        chown -R "$2:$2" "$1"
+    fi
+}
+
+create_symlink_dir() {
+    local local_dir=$1
+    local cache_dir=$2
+    local username=$3
+
+    runuser -u "$username" -- mkdir -p "$(dirname "$local_dir")"
+    runuser -u "$username" -- mkdir -p "$cache_dir"
+
+    # if the folder we want to symlink already exists, the ln -s command will create a folder inside the existing folder
+    if [ -e "$local_dir" ]; then
+        echo "Moving existing $local_dir folder to $local_dir-old"
+        mv "$local_dir" "$local_dir-old"
+    fi
+
+    echo "Symlink $local_dir to $cache_dir for $username..."
+    runuser -u "$username" -- ln -s "$cache_dir" "$local_dir"
+}
+
+create_cache_dir "/dc/gcloud-cli" "${USERNAME}"
+create_symlink_dir "$_REMOTE_USER_HOME/.config/gcloud" "/dc/gcloud-cli" "${USERNAME}"
+
+# Set Lifecycle scripts
+if [ -f oncreate.sh ]; then
+    mkdir -p "${LIFECYCLE_SCRIPTS_DIR}"
+    cp oncreate.sh "${LIFECYCLE_SCRIPTS_DIR}/oncreate.sh"
 fi
 
-# make ~/.config folder if doesn't exist
-mkdir -p "$_REMOTE_USER_HOME/.config"
-mkdir -p "/dc/gcloud-cli"
-
-# if `.config/gcloud` already exists, the `ln -s` command will create an extra
-# folder *inside* `.config/gcloud` that symlinks to `gcloud-cli`
-# Thus, we want to make sure the folder does NOT exist so the symlink will actually be to ~/.config/gcloud
-if [ -e "$_REMOTE_USER_HOME/.config/gcloud" ]; then
-    echo "Moving existing gcloud folder to gcloud-old"
-    mv "$_REMOTE_USER_HOME/.config/gcloud" "$_REMOTE_USER_HOME/.config/gcloud-old"
-fi
-
-ln -s /dc/gcloud-cli "$_REMOTE_USER_HOME/.config/gcloud"
-# chown the entire `.config` folder because devcontainers creates
-# a `~/.config/vscode-dev-containers` folder later on
-chown -R "${_REMOTE_USER}:${_REMOTE_USER}" "$_REMOTE_USER_HOME/.config"
-
-# --- Generate a '$FEATURE_ID-post-create.sh' script to be executed by the 'postCreateCommand' lifecycle hook
-# Looks like this is the best way to run a script in lifecycle hooks
-# Source: https://github.com/devcontainers/features/blob/562305d37b97d47331d96306ffc2a0a3cce55e64/src/git-lfs/install.sh#L190C1-L190C109
-POST_CREATE_SCRIPT_PATH="/usr/local/share/$FEATURE_ID-post-create.sh"
-
-tee "$POST_CREATE_SCRIPT_PATH" >/dev/null \
-    <<'EOF'
-#!/bin/sh
-
-set -e
-
-# if the user is not root, chown /dc/aws-cli to the user
-if [ "$(id -u)" != "0" ]; then
-    echo "Running post-start.sh for user $USER"
-    sudo chown -R "$USER:$USER" /dc/gcloud-cli
-fi
-EOF
-
-chmod 755 "$POST_CREATE_SCRIPT_PATH"
+echo "Finished installing $FEATURE_ID"

@@ -1,7 +1,7 @@
 {
     "name": "Github CLI Persistence",
     "id": "github-cli-persistence",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/github-cli-persistence",
     "description": "Avoid extra logins from the Github CLI by preserving the `~/.config/gh` folder across container instances.",
     "options": {},
@@ -17,5 +17,7 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
-    "postCreateCommand": "/usr/local/share/github-cli-persistence-post-create.sh"
+    "onCreateCommand": {
+        "github-cli-persistence-setup": "/usr/local/share/github-cli-persistence/scripts/oncreate.sh"
+    }
 }
