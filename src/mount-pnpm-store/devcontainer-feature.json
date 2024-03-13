@@ -17,5 +17,7 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
-    "postCreateCommand": "/usr/local/share/mount-pnpm-store-post-create.sh"
+    "onCreateCommand": {
+        "mount-pnpm-store-setup": "/usr/local/share/mount-pnpm-store-setup/scripts/oncreate.sh"
+    }
 }
