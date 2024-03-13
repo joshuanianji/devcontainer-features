@@ -18,6 +18,6 @@
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "onCreateCommand": {
-        "mount-pnpm-store-setup": "/usr/local/share/mount-pnpm-store-setup/scripts/oncreate.sh"
+        "mount-pnpm-store-setup": "/usr/local/share/mount-pnpm-store/scripts/oncreate.sh"
     }
 }
