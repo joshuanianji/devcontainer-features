@@ -17,6 +17,6 @@ This repo contains my custom devcontainer features.
 
 ## Deprecated Features
 
-| Feature                  | Description                                                                                                             |
+| Feature                  | Description                                                                                                                                         |
 | ------------------------ |
-| [lamdera](./src/lamdera) | Installs [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later). |
+| [lamdera](./src/lamdera) | Installs [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm. Deprecated in favor of the Lamdera NPM package |
