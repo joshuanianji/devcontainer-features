@@ -1,5 +1,6 @@
 #!/bin/sh
 
+USERNAME=${USERNAME:-${_REMOTE_USER}}
 FEATURE_ID="aws-cli-persistence"
 LIFECYCLE_SCRIPTS_DIR="/usr/local/share/${FEATURE_ID}/scripts"
 
