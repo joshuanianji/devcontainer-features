@@ -1,3 +1,7 @@
+## Deprecation notice
+
+This Feature was deprecated in favor of lamdera's NPM package. Lamdera versioning is much better and it's easier to install and manage.
+
 ## Lamdera Versions
 
 **Latest tag is hardcoded to v1.1.0!** I'm not sure how to get the latest lamdera version automatically (without web scraping the lamdera site which won't be pretty), so currently this is the solution I have.
