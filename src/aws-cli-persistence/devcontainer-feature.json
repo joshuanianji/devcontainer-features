@@ -17,5 +17,5 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
-    "postCreateCommand": "/usr/local/share/aws-cli-persistence-post-create.sh"
+    "postCreateCommand": "/usr/local/share/aws-cli-persistence/oncreate.sh"
 }
