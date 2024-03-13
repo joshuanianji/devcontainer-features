@@ -17,5 +17,7 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
-    "postCreateCommand": "/usr/local/share/github-cli-persistence-post-create.sh"
+    "onCreateCommand": {
+        "github-cli-persistence-setup": "/usr/local/share/github-cli-persistence/scripts/oncreate.sh"
+    }
 }
