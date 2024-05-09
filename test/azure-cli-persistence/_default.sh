@@ -9,7 +9,7 @@ set -e
 source dev-container-features-test-lib
 
 # check that `azure --help` works
-check "help" bash -c "azure help | grep 'usage'"
+check "help" bash -c "az help | grep 'usage'"
 
 # check that `.azure` and `/dc/azure-cli` exist under the user (should be node)
 check "~/.azure existence" bash -c "ls -la ~ | grep '.azure'"
