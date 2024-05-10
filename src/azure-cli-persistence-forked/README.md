@@ -14,10 +14,8 @@
 ## Options
 
 | Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
+| ---------- | ----------- | ---- | ------------- |
 
-
-**NOTE:** This is a fork of [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence).
 
 ## OS and Architecture Support
 
@@ -35,7 +33,7 @@ Shells: `bash`, `zsh`, `fish`
 
 ## References
 
-- [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence)
+Forked from [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence)
 
 
 ---
