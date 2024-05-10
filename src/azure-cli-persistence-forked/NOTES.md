@@ -1,3 +1,5 @@
+**NOTE:** This is a fork of [stuartleeks/azure-cli-persistence](https://github.com/stuartleeks/dev-container-features/tree/main/src/azure-cli-persistence).
+
 ## OS and Architecture Support
 
 Architectures: `amd` and `arm`
@@ -8,9 +10,9 @@ Shells: `bash`, `zsh`, `fish`
 
 ## Changelog
 
-| Version | Notes                                           |
-| ------- | ----------------------------------------------- |
-| 0.0.1   | Initial Version                                 |
+| Version | Notes           |
+| ------- | --------------- |
+| 0.0.1   | Initial Version |
 
 ## References
 

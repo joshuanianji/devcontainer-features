@@ -1,7 +1,7 @@
 #!/bin/sh
 
 USERNAME=${USERNAME:-${_REMOTE_USER}}
-FEATURE_ID="azure-cli-persistence"
+FEATURE_ID="azure-cli-persistence-forked"
 LIFECYCLE_SCRIPTS_DIR="/usr/local/share/${FEATURE_ID}/scripts"
 
 set -e

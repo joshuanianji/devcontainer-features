@@ -18,6 +18,6 @@
         "ghcr.io/meaningful-ooo/devcontainer-features/fish"
     ],
     "onCreateCommand": {
-        "azure-cli-persistence-setup": "/usr/local/share/azure-cli-persistence/scripts/oncreate.sh"
+        "azure-cli-persistence-setup": "/usr/local/share/azure-cli-persistence-forked/scripts/oncreate.sh"
     }
 }
