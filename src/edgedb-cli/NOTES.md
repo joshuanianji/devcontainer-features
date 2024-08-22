@@ -1,6 +1,8 @@
-## Note to Users
 
-This feature mounts the edgedb config and data folder to the host machine for persistence. To do so, it makes some assumptions about `edgedb info`:
+
+## Notes on Volume Mounts
+
+This feature mounts the edgedb config and data folder for persistence. To do so, it makes some assumptions about `edgedb info`:
 
 ```bash
 $ edgedb info
@@ -15,7 +17,7 @@ EdgeDB uses the following local paths:
 └────────────┴────────────────────────────────────────┘
 ```
 
-**These paths may change based on the OS!**. This feature is tested on Ubuntu and Debian and the paths match up, but may not work for others.
+**These paths may change based on the OS!** This feature is tested on Ubuntu and Debian and the paths match up, but may not work for others.
 
 ## OS and Architecture Support
 
