@@ -1,6 +1,18 @@
-## Note to Users
+## Usage
 
-This feature mounts the edgedb config and data folder to the host machine for persistence. To do so, it makes some assumptions about `edgedb info`:
+**The EdgeDB instance should not be in the same container as the CLI.** My experience doing so makes the `edgedb ui` command start failing once you restart the container. I recommend the following options:
+
+1. Use a docker-compose template with two services: one for the CLI and one for the EdgeDB instance.
+    
+    You can either use the [javascript-node-edgedb](https://github.com/joshuanianji/devcontainer-templates/blob/main/src/javascript-node-edgedb) or the [rust-edgedb](https://github.com/joshuanianji/devcontainer-templates/blob/main/src/rust-edgedb) templates, or use them as references to make your own.
+
+    Once inside the devcontainer, you can run `edgedb instance link` to connect the CLI to the instance. Check the templates above for more details.
+
+2. Connect to a cloud instance [with `edgedb cloud`](https://docs.edgedb.com/cloud/cli).
+
+## Notes on Volume Mounts
+
+This feature mounts the edgedb config and data folder for persistence. To do so, it makes some assumptions about `edgedb info`:
 
 ```bash
 $ edgedb info
@@ -15,7 +27,7 @@ EdgeDB uses the following local paths:
 └────────────┴────────────────────────────────────────┘
 ```
 
-**These paths may change based on the OS!**. This feature is tested on Ubuntu and Debian and the paths match up, but may not work for others.
+**These paths may change based on the OS!** This feature is tested on Ubuntu and Debian and the paths match up, but may not work for others.
 
 ## OS and Architecture Support
 
