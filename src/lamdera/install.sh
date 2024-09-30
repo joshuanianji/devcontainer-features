@@ -51,7 +51,7 @@ install() {
     # Hardcode the latest version of lamdera!!
     # TODO: fix this later!
     if [[ $VERSION == "latest" ]]; then
-        VERSION="1.2.1"
+        VERSION="1.3.0"
     fi
 
     # Download and install lamdera
