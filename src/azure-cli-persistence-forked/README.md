@@ -14,7 +14,7 @@
 ## Options
 
 | Options Id | Description | Type | Default Value |
-| ---------- | ----------- | ---- | ------------- |
+|-----|-----|-----|-----|
 
 
 ## OS and Architecture Support
