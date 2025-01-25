@@ -1,0 +1,23 @@
+{
+    "name": "asdf",
+    "id": "asdf",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/asdf",
+    "description": "Downloads asdf and installs all plugins from .tool-versions",
+    "options": {},
+    "mounts": [
+        {
+            "source": "${devcontainerId}-asdf-data",
+            "target": "/dc/asdf",
+            "type": "volume"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/terraform",
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+    ],
+    "onCreateCommand": {
+        "terraform-cli-persistence-setup": "/usr/local/share/terraform-cli-persistence/scripts/oncreate.sh"
+    }
+}
