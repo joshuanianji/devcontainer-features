@@ -1,3 +1,7 @@
+## Deprecation Notes
+
+This feature was deprecated after merging [stuartleeks/azure-cli-persistence#16](https://github.com/stuartleeks/dev-container-features/pull/16)
+
 ## OS and Architecture Support
 
 Architectures: `amd` and `arm`

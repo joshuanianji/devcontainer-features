@@ -2,6 +2,7 @@
     "name": "Azure CLI Persistence (forked)",
     "id": "azure-cli-persistence-forked",
     "version": "0.0.1",
+    "deprecated": true,
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/azure-cli-persistence",
     "description": "(fork of stuartleeks): Avoid extra logins from the Azure CLI by preserving the `~/.azure` folder across container instances.",
     "options": {},
