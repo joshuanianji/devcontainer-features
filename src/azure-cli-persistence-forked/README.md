@@ -1,3 +1,5 @@
+### **IMPORTANT NOTE**
+- **This Feature is deprecated, and will no longer receive any further updates/support.**
 
 # Azure CLI Persistence (forked) (azure-cli-persistence-forked)
 
@@ -16,6 +18,10 @@
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 
+
+## Deprecation Notes
+
+This feature was deprecated after merging [stuartleeks/azure-cli-persistence#16](https://github.com/stuartleeks/dev-container-features/pull/16)
 
 ## OS and Architecture Support
 
