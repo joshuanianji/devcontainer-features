@@ -1,0 +1,8 @@
+{
+    "with_node": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+        "features": {
+            "gel-cli": {}
+        }
+    }
+}
