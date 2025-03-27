@@ -2,6 +2,7 @@
     "name": "EdgeDB",
     "id": "edgedb-cli",
     "version": "1.0.2",
+    "deprecated": true,
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/edgedb-cli",
     "description": "EdgeDB CLI via the official installation script. Includes the VSCode extension and mounts the config and data folder.",
     "options": {},

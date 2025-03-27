@@ -1,3 +1,7 @@
+## Deprecation Notes
+
+Please use [joshuanianji/gel-cli](https://github.com/joshuanianji/devcontainer-features/tree/main/src/gel-cli) instead. See: [EdgeDB is now Gel and Postgres is the Future](https://www.geldata.com/blog/edgedb-is-now-gel-and-postgres-is-the-future)
+
 ## Usage
 
 **The EdgeDB instance should not be in the same container as the CLI.** My experience doing so makes the `edgedb ui` command start failing once you restart the container. I recommend the following options:
