@@ -73,13 +73,15 @@ export DEBIAN_FRONTEND=noninteractive
 
 check_packages curl ca-certificates
 
+# Looks like they kept the config directories the same (edgedb in the paths)
+
 # cache data directory
 create_cache_dir "/dc/gel-cli/data" "${USERNAME}"
-create_symlink_dir "$_REMOTE_USER_HOME/.local/share/gel" "/dc/gel-cli/data" "${USERNAME}"
+create_symlink_dir "$_REMOTE_USER_HOME/.local/share/edgedb" "/dc/gel-cli/data" "${USERNAME}"
 
 # cache config directory
 create_cache_dir "/dc/gel-cli/config" "${USERNAME}"
-create_symlink_dir "$_REMOTE_USER_HOME/.config/gel" "/dc/gel-cli/config" "${USERNAME}"
+create_symlink_dir "$_REMOTE_USER_HOME/.config/edgedb" "/dc/gel-cli/config" "${USERNAME}"
 
 install_cli "${USERNAME}"
 
