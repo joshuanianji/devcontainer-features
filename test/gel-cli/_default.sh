@@ -28,7 +28,7 @@ check "/dc/gel-cli exists" bash -c "ls -la /dc/gel-cli | grep 'config'"
 # check that the folders are owned by the user
 # https://askubuntu.com/a/175060
 # $USER is empty when running as root, so we use $(whoami)
-echo "Checking ownership of ~/.local/share/edgedb/data and /dc/gel-cli/data (ensure it is owned by $(whoami))"
+echo "Checking ownership of data installation paths and mounts (ensure it is owned by $(whoami))"
 
 check "~/.local/share/edgedb owned by user" bash -c "test \"$(stat -c "%U" ~/.local/share/edgedb)\" = $(whoami)"
 check "/dc/gel-cli/data owned by user" bash -c "test \"$(stat -c "%U" /dc/gel-cli/data)\" = $(whoami)"
