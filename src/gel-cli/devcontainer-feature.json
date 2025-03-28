@@ -1,0 +1,29 @@
+{
+    "name": "Gel CLI",
+    "id": "gel-cli",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/gel-cli",
+    "description": "Gel CLI (previously EdgeDB) via the official installation script. Includes the VSCode extension and mounts the config and data folder.",
+    "options": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "magicstack.edgedb"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "source": "${devcontainerId}-gel-cli",
+            "target": "/dc/gel-cli",
+            "type": "volume"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/meaningful-ooo/devcontainer-features/fish"
+    ],
+    "onCreateCommand": {
+        "gel-cli-setup": "/usr/local/share/gel-cli/scripts/oncreate.sh"
+    }
+}
