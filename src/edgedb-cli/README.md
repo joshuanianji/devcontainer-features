@@ -1,3 +1,5 @@
+### **IMPORTANT NOTE**
+- **This Feature is deprecated, and will no longer receive any further updates/support.**
 
 # EdgeDB (edgedb-cli)
 
@@ -22,6 +24,10 @@ EdgeDB CLI via the official installation script. Includes the VSCode extension a
 ### VS Code Extensions
 
 - `magicstack.edgedb`
+
+## Deprecation Notes
+
+Please use [joshuanianji/gel-cli](https://github.com/joshuanianji/devcontainer-features/tree/main/src/gel-cli) instead. See: [EdgeDB is now Gel and Postgres is the Future](https://www.geldata.com/blog/edgedb-is-now-gel-and-postgres-is-the-future)
 
 ## Usage
 
