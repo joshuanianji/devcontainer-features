@@ -43,7 +43,7 @@ jobs:
                         continue
 
                 with open('.github/tmp-paths-filter.yml', 'a') as f:
-                    f.write(f"{folder}:")
+                    f.write(f"{folder}:\n")
                     f.write(f"  - '**/{folder}/**'\n")
                     f.write(f"  - '.github/workflows/test.yaml'\n")
                 
