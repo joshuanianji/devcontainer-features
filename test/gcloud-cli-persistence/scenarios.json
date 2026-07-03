@@ -7,7 +7,7 @@
         }
     },
     "zsh_shell": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
         "features": {
             "ghcr.io/devcontainers/features/common-utils:2": {
                 "configureZshAsDefaultShell": true
@@ -17,7 +17,7 @@
         }
     },
     "root_user": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
         "features": {
             "ghcr.io/dhoeric/features/google-cloud-cli": {},
             "gcloud-cli-persistence": {}
