@@ -12,6 +12,13 @@
             "mount-pnpm-store": {}
         }
     },
+    "node_v2": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+        "features": {
+            "ghcr.io/devcontainers/features/node:2": {},
+            "mount-pnpm-store": {}
+        }
+    },
     "zsh_shell": {
         "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
         "features": {
