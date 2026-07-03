@@ -38,9 +38,10 @@ The volume mount is called `global-devcontainer-pnpm-store`, so ensure that no o
 
 ## Changelog
 
-| Version | Notes                                           |
-| ------- | ----------------------------------------------- |
-| 1.0.2   | Move onCreate lifecycle script to `oncreate.sh` |
+| Version | Notes                                                      |
+| ------- | ---------------------------------------------------------- |
+| 1.0.3   | Fix pnpm global bin dir check in `oncreate.sh` (issue #80) |
+| 1.0.2   | Move onCreate lifecycle script to `oncreate.sh`            |
 | 1.0.1   | Fix Docs                                        |
 | 1.0.0   | Support zsh + refactor                          |
 | 0.1.1   | Fix mount name                                  |
