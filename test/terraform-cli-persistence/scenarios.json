@@ -16,14 +16,6 @@
             "terraform-cli-persistence": {}
         }
     },
-    "fish_shell": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
-        "features": {
-            "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
-            "ghcr.io/devcontainers/features/terraform:1": {},
-            "terraform-cli-persistence": {}
-        }
-    },
     "root_user": {
         "image": "mcr.microsoft.com/devcontainers/base:debian",
         "features": {
