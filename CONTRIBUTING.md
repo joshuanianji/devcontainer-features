@@ -11,9 +11,9 @@ Each feature lives in two directories:
 
 1. Create `src/<id>/` with a `devcontainer-feature.json` (`id`, `version`, `name`), an `install.sh`, and a `NOTES.md`.
 2. Create `test/<id>/` with `test.sh` and `scenarios.json`.
-3. Open a PR. `validate.yml` and `test.yaml` run automatically against the changed feature.
+3. Open a PR. `.validateyml` and `test.yaml` run automatically against the changed feature.
 4. Merge to `main`.
-5. Run the **Release & Docs** workflow manually (Actions → Release & Docs → Run workflow). It publishes the feature to `ghcr.io/joshuanianji/devcontainer-features/<id>` and opens an "Automated documentation update" PR.
+5. (@joshuanianji) Run the **Release & Docs** workflow manually (Actions → Release & Docs → Run workflow). It publishes the feature to `ghcr.io/joshuanianji/devcontainer-features/<id>` and opens an "Automated documentation update" PR.
 6. Merge that docs PR.
 7. Add a row for the feature to the table in the root `README.md` (this part is manual).
 
@@ -22,7 +22,7 @@ Each feature lives in two directories:
 1. Make the change in `install.sh` / the feature.
 2. Bump `version` in `devcontainer-feature.json` (semver) — publishing only pushes new versions.
 3. Add a row to the Changelog table in `NOTES.md`.
-4. PR → merge → run **Release & Docs** → merge the docs PR.
+4. (@joshuanianji)PR → merge → run **Release & Docs** → merge the docs PR.
 
 ## Docs
 
