@@ -16,14 +16,6 @@
             "gcloud-cli-persistence": {}
         }
     },
-    "fish_shell": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
-        "features": {
-            "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
-            "ghcr.io/dhoeric/features/google-cloud-cli": {},
-            "gcloud-cli-persistence": {}
-        }
-    },
     "root_user": {
         "image": "mcr.microsoft.com/devcontainers/base:debian",
         "features": {
