@@ -18,9 +18,9 @@ jobs:
     steps:
       # For pull requests it's not necessary to checkout the code
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
  
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.x'
 
@@ -50,7 +50,7 @@ jobs:
       - name: Print paths filter
         run: cat .github/tmp-paths-filter.yml
 
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: .github/tmp-paths-filter.yml
@@ -68,7 +68,7 @@ jobs:
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -85,7 +85,7 @@ jobs:
       matrix:
         features: ${{ fromJson(needs.detect-changes.outputs.changes) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
