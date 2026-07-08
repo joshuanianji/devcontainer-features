@@ -10,6 +10,7 @@ Shells: `bash`, `zsh`, `fish`
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 1.0.4   | Fix script name in output                            |
 | 1.0.3   | Move onCreate lifecycle script to `oncreate.sh`      |
 | 1.0.2   | Update soft dependencies                             |
 | 1.0.1   | Fix Docs                                             |
