@@ -22,6 +22,6 @@ fi
 
 # if the user is not root, chown /dc/mounted-pnpm-store to the user
 if [ "$(id -u)" != "0" ]; then
-    echo "Running post-start.sh for user $USER"
+    echo "Running oncreate.sh for user $USER"
     sudo chown -R "$USER:$USER" /dc/mounted-pnpm-store
 fi
