@@ -1,0 +1,22 @@
+{
+    "name": "Google Cloud CLI",
+    "id": "google-cloud-cli",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/google-cloud-cli",
+    "description": "Installs the Google Cloud CLI (gcloud) via Google's apt repository. Forked from ghcr.io/dhoeric/features/google-cloud-cli with a trixie-compatible key import (`gpg --dearmor` instead of the removed `apt-key`).",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a gcloud CLI version"
+        },
+        "installGkeGcloudAuthPlugin": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install 'gke-gcloud-auth-plugin' plugin?"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

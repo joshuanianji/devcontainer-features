@@ -1,0 +1,58 @@
+{
+    "latest": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "google-cloud-cli": {}
+        }
+    },
+    "trixie": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-13",
+        "features": {
+            "google-cloud-cli": {}
+        }
+    },
+    "bookworm": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+        "features": {
+            "google-cloud-cli": {}
+        }
+    },
+    "ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "google-cloud-cli": {}
+        }
+    },
+    "with_version": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "google-cloud-cli": {
+                "version": "latest"
+            }
+        }
+    },
+    "with_gke_plugin": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "google-cloud-cli": {
+                "installGkeGcloudAuthPlugin": true
+            }
+        }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "google-cloud-cli": {}
+        },
+        "remoteUser": "root"
+    },
+    "zsh_shell": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2": {
+                "configureZshAsDefaultShell": true
+            },
+            "google-cloud-cli": {}
+        }
+    }
+}
