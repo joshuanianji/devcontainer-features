@@ -1,3 +1,23 @@
+
+# Google Cloud CLI (google-cloud-cli)
+
+Installs the Google Cloud CLI (gcloud) via Google's apt repository. Forked from ghcr.io/dhoeric/features/google-cloud-cli with a trixie-compatible key import (`gpg --dearmor` instead of the removed `apt-key`).
+
+## Example Usage
+
+```json
+"features": {
+    "ghcr.io/joshuanianji/devcontainer-features/google-cloud-cli:1": {}
+}
+```
+
+## Options
+
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Select or enter a gcloud CLI version | string | latest |
+| installGkeGcloudAuthPlugin | Install 'gke-gcloud-auth-plugin' plugin? | boolean | false |
+
 ## Why this fork?
 
 This is a fork of [`ghcr.io/dhoeric/features/google-cloud-cli`](https://github.com/dhoeric/features/tree/main/src/google-cloud-cli). It ships two fixes that have been pending upstream for over half a year:
@@ -27,3 +47,8 @@ Shells: `bash`, `zsh`, `fish`
 
 - Upstream: [dhoeric/features/src/google-cloud-cli](https://github.com/dhoeric/features/tree/main/src/google-cloud-cli)
 - Pending upstream fix: [dhoeric/features#36](https://github.com/dhoeric/features/pull/36)
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/joshuanianji/devcontainer-features/blob/main/src/google-cloud-cli/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
