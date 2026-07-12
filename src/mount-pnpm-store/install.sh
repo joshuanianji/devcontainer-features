@@ -1,52 +1,28 @@
 #!/bin/sh
 
-USERNAME=${USERNAME:-${_REMOTE_USER}}
-FEATURE_ID="mount-pnpm-store"
-LIFECYCLE_SCRIPTS_DIR="/usr/local/share/${FEATURE_ID}/scripts"
-
 set -e
 
-create_cache_dir() {
-    if [ -d "$1" ]; then
-        echo "Cache directory $1 already exists. Skip creation..."
-    else
-        echo "Create cache directory $1..."
-        mkdir -p "$1"
-    fi
+USERNAME=${USERNAME:-${_REMOTE_USER}}
+FEATURE_ID="mount-pnpm-store"
+STORE_DIR="/dc/mounted-pnpm-store"
+LIFECYCLE_SCRIPTS_DIR="/usr/local/share/${FEATURE_ID}/scripts"
 
-    if [ -z "$2" ]; then
-        echo "No username provided. Skip chown..."
-    else
-        echo "Change owner of $1 to $2..."
-        chown -R "$2:$2" "$1"
-    fi
-}
+echo "Ensuring pnpm store directory ${STORE_DIR} exists..."
+mkdir -p "${STORE_DIR}"
 
-create_symlink_dir() {
-    local local_dir=$1
-    local cache_dir=$2
-    local username=$3
-
-    runuser -u "$username" -- mkdir -p "$(dirname "$local_dir")"
-    runuser -u "$username" -- mkdir -p "$cache_dir"
-
-    # if the folder we want to symlink already exists, the ln -s command will create a folder inside the existing folder
-    if [ -e "$local_dir" ]; then
-        echo "Moving existing $local_dir folder to $local_dir-old"
-        mv "$local_dir" "$local_dir-old"
-    fi
-
-    echo "Symlink $local_dir to $cache_dir for $username..."
-    runuser -u "$username" -- ln -s "$cache_dir" "$local_dir"
-}
-
-create_cache_dir "/dc/mounted-pnpm-store" "${USERNAME}"
-create_symlink_dir "$_REMOTE_USER_HOME/.pnpm-store" "/dc/mounted-pnpm-store" "${USERNAME}"
-
-# Set Lifecycle scripts
-if [ -f oncreate.sh ]; then
-    mkdir -p "${LIFECYCLE_SCRIPTS_DIR}"
-    cp oncreate.sh "${LIFECYCLE_SCRIPTS_DIR}/oncreate.sh"
+if [ -n "${USERNAME}" ] && [ "${USERNAME}" != "root" ]; then
+    echo "Setting owner of ${STORE_DIR} to ${USERNAME}..."
+    chown -R "${USERNAME}:${USERNAME}" "${STORE_DIR}"
+else
+    echo "No non-root user; leaving ${STORE_DIR} owned by root."
 fi
 
-echo "Finished installing $FEATURE_ID"
+# Install lifecycle script (re-asserts ownership at container create time)
+if [ -f oncreate.sh ]; then
+    echo "Installing oncreate.sh to ${LIFECYCLE_SCRIPTS_DIR}..."
+    mkdir -p "${LIFECYCLE_SCRIPTS_DIR}"
+    cp oncreate.sh "${LIFECYCLE_SCRIPTS_DIR}/oncreate.sh"
+    chmod +x "${LIFECYCLE_SCRIPTS_DIR}/oncreate.sh"
+fi
+
+echo "Finished installing ${FEATURE_ID}"
