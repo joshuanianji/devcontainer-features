@@ -1,7 +1,7 @@
 {
     "name": "Gel CLI",
     "id": "gel-cli",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/gel-cli",
     "description": "Gel CLI (previously EdgeDB) via the official installation script. Includes the VSCode extension and mounts the config and data folder.",
     "options": {},
