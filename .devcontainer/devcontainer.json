@@ -4,6 +4,9 @@
     "customizations": {
         "vscode": {
             "settings": {
+                "json.schemaDownload.trustedDomains": {
+                    "https://docs.renovatebot.com/": true
+                },
                 "json.schemas": [
                     {
                         "fileMatch": [
