@@ -71,6 +71,9 @@ install_cli() {
 
 export DEBIAN_FRONTEND=noninteractive
 
+# packages.edgedb.com is dead; packages now live on packages.geldata.com
+export EDGEDB_PKG_ROOT="${EDGEDB_PKG_ROOT:-https://packages.geldata.com}"
+
 check_packages curl ca-certificates
 
 # Looks like they kept the config directories the same (edgedb in the paths)
