@@ -1,0 +1,15 @@
+{
+    "with_node": {
+        "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+        "features": {
+            "opencode-persistence": {}
+        }
+    },
+    "root_user": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "opencode-persistence": {}
+        },
+        "remoteUser": "root"
+    }
+}
