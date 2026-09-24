@@ -16,11 +16,6 @@ TOKEN_MONITOR_WATCH_POLLING=1    # only if container volumes never fire events
 
 **Gotcha:** a missing env file either becomes a stray directory (Docker Desktop auto-creates) or a hard container-start error (DinD). Create it before first use.
 
-## Data sources
-
-- Claude: `/dc/claude` via `CLAUDE_CONFIG_DIR` + the `~/.claude` symlink from claude-code-persistence
-- OpenCode: `/dc/opencode/data` via the `~/.local/share/opencode` symlink
-
 ## Changelog
 
 | Version | Notes           |
