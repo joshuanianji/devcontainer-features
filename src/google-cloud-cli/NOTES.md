@@ -22,6 +22,7 @@ Shells: `bash`, `zsh`, `fish`
 | Version | Notes |
 | ------- | ----- |
 | 1.0.0   | Initial fork of `ghcr.io/dhoeric/features/google-cloud-cli@1.0.1` with `gpg --dearmor` key import (fixes [dhoeric/features#36](https://github.com/dhoeric/features/pull/36), [joshuanianji/devcontainer-features#90](https://github.com/joshuanianji/devcontainer-features/issues/90)). |
+| 1.0.1   | Install the renamed `google-cloud-cli-gke-gcloud-auth-plugin` package; Google dropped the transitional `google-cloud-sdk-` name, so `installGkeGcloudAuthPlugin` failed with `E: Package 'google-cloud-sdk-gke-gcloud-auth-plugin' has no installation candidate`. |
 
 ## References
 
