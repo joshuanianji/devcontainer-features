@@ -16,3 +16,6 @@ This repo contains my custom devcontainer features.
 | [lamdera](./src/lamdera)                                     | Installs [Lamdera](https://dashboard.lamdera.app/), a type-safe full-stack web-app platform for Elm (v1.1.0 and later).                          |
 | [mount-pnpm-store](./src/mount-pnpm-store)                   | Mounts the pnpm store to a volume to share between multiple devcontainers.                                                                       |
 | [gel-cli](./src/gel-cli)                                     | Gel CLI (previously EdgeDB) via the official installation script. Includes the VSCode extension as well as a couple mounts for data persistence. |
+| [claude-code-persistence](./src/claude-code-persistence)     | Opinionated Claude Code authentication, config and history persistence across a devcontainer instance.                                           |
+| [opencode-persistence](./src/opencode-persistence)           | Opinionated OpenCode authentication, config and session persistence across a devcontainer instance.                                              |
+| [token-monitor-agent](./src/token-monitor-agent)             | Report Claude Code and OpenCode token usage from this container to a self-hosted [token-monitor](https://github.com/Javis603/token-monitor) hub.  |
