@@ -3,7 +3,7 @@
     "id": "token-monitor-agent",
     "version": "1.0.0",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/token-monitor-agent",
-    "description": "Opinionated: report token usage from this container's /dc volumes to a self-hosted Javis603/token-monitor hub.",
+    "description": "Report token usage from this container's /dc volumes to a self-hosted Javis603/token-monitor hub.",
     "options": {},
     "mounts": [
         {
