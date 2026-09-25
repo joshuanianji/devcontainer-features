@@ -32,7 +32,11 @@ fi
 # Simultaneous containers of the SAME project then merge into one device
 # instead of double-counting.
 if [ -z "${TOKEN_MONITOR_DEVICE_ID:-}" ]; then
-    TOKEN_MONITOR_DEVICE_ID="dc-$(basename "${PWD:-/workspace}" | sed -E 's/[^a-zA-Z0-9-]+/-/g; s^-+$^^')"
+    _base="$(basename "${PWD:-/workspace}" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '-' | sed 's/^-//;s/-$//')"
+    # never emit a bare "dc-": manual runs outside the workspace yield an
+    # empty basename, so fall back to the container hostname instead
+    [ -n "$_base" ] || _base="container-$(hostname 2>/dev/null || echo unknown)"
+    TOKEN_MONITOR_DEVICE_ID="dc-${_base}"
     export TOKEN_MONITOR_DEVICE_ID
 fi
 
