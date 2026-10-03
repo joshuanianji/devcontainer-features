@@ -101,7 +101,7 @@ install_using_apt() {
     # Install gke-gcloud-auth-plugin if needed
     if [ "${INSTALL_GKE_GCLOUD_AUTH_PLUGIN}" = "true" ]; then
         echo "(*) Installing 'gke-gcloud-auth-plugin' plugin..."
-        check_packages google-cloud-sdk-gke-gcloud-auth-plugin
+        check_packages google-cloud-cli-gke-gcloud-auth-plugin
     fi
 }
 
