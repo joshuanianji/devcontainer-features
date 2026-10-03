@@ -1,0 +1,24 @@
+{
+    "name": "Claude Code Persistence",
+    "id": "claude-code-persistence",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/claude-code-persistence",
+    "description": "Opinionated Claude Code authentication, config and history persistence across a devcontainer instance",
+    "options": {},
+    "mounts": [
+        {
+            "source": "claude-code-config",
+            "target": "/dc/claude",
+            "type": "volume"
+        }
+    ],
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/dc/claude"
+    },
+    "installsAfter": [
+        "ghcr.io/anthropics/devcontainer-features/claude-code"
+    ],
+    "onCreateCommand": {
+        "claude-code-persistence-setup": "/usr/local/share/claude-code-persistence/scripts/oncreate.sh"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "OpenCode Persistence",
+    "id": "opencode-persistence",
+    "version": "1.0.0",
+    "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/opencode-persistence",
+    "description": "Opinionated OpenCode authentication, config and session persistence across a devcontainer instance",
+    "options": {},
+    "mounts": [
+        {
+            "source": "opencode-data",
+            "target": "/dc/opencode/data",
+            "type": "volume"
+        },
+        {
+            "source": "opencode-config",
+            "target": "/dc/opencode/config",
+            "type": "volume"
+        }
+    ],
+    "installsAfter": [
+        "ghcr.io/jsburckhardt/devcontainer-features/opencode"
+    ],
+    "onCreateCommand": {
+        "opencode-persistence-setup": "/usr/local/share/opencode-persistence/scripts/oncreate.sh"
+    }
+}
