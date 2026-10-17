@@ -10,6 +10,7 @@ Shells: `bash`, `zsh`, `fish`
 
 | Version | Notes                                                |
 | ------- | ---------------------------------------------------- |
+| 1.0.5   | `oncreate.sh`: use `id -un` instead of `$USER`, skip `chown` when already owned, `sudo -n` with a warning instead of failing |
 | 1.0.4   | Fix script name in output                            |
 | 1.0.3   | Move onCreate lifecycle script to `oncreate.sh`      |
 | 1.0.2   | Update soft dependencies                             |
