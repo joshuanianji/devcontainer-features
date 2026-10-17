@@ -20,4 +20,5 @@ TOKEN_MONITOR_WATCH_POLLING=1    # only if container volumes never fire events
 
 | Version | Notes           |
 | ------- | --------------- |
+| 1.0.1   | Detach agent with `setsid` so it survives the postStartCommand TTY closing (#114) |
 | 1.0.0   | Initial version |

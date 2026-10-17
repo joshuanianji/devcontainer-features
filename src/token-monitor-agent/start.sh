@@ -42,5 +42,12 @@ fi
 
 mkdir -p /dc/token-monitor/state
 cd "${APP_DIR}"
-nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 &
+# detach into its own session: lifecycle commands run under a docker exec TTY,
+# and the SIGHUP sent when this script exits can land before nohup installs
+# its ignore. setsid takes the agent out of that session entirely.
+if command -v setsid >/dev/null 2>&1; then
+    setsid nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 </dev/null &
+else
+    nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 </dev/null &
+fi
 echo "token-monitor-agent: started as ${TOKEN_MONITOR_DEVICE_ID} (pid $!)"
