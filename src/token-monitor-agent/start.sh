@@ -42,9 +42,11 @@ fi
 
 mkdir -p /dc/token-monitor/state
 cd "${APP_DIR}"
-# detach into its own session: lifecycle commands run under a docker exec TTY,
-# and the SIGHUP sent when this script exits can land before nohup installs
-# its ignore. setsid takes the agent out of that session entirely.
+# lifecycle commands may run under a docker exec TTY, which sends SIGHUP as
+# soon as this script exits - often before the child has exec'd nohup (or
+# setsid) and protected itself. Ignore HUP here first: an ignored signal is
+# inherited across fork+exec, so the agent is immune from the moment it exists.
+trap '' HUP
 if command -v setsid >/dev/null 2>&1; then
     setsid nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 </dev/null &
 else
