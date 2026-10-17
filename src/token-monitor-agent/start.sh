@@ -42,5 +42,14 @@ fi
 
 mkdir -p /dc/token-monitor/state
 cd "${APP_DIR}"
-nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 &
+# lifecycle commands may run under a docker exec TTY, which sends SIGHUP as
+# soon as this script exits - often before the child has exec'd nohup (or
+# setsid) and protected itself. Ignore HUP here first: an ignored signal is
+# inherited across fork+exec, so the agent is immune from the moment it exists.
+trap '' HUP
+if command -v setsid >/dev/null 2>&1; then
+    setsid nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 </dev/null &
+else
+    nohup npm run agent >>/dc/token-monitor/state/monitor.log 2>&1 </dev/null &
+fi
 echo "token-monitor-agent: started as ${TOKEN_MONITOR_DEVICE_ID} (pid $!)"
