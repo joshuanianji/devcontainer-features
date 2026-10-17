@@ -14,11 +14,16 @@ TOKEN_MONITOR_LIMIT_PROVIDERS=claude,zai      # optional (unset = all providers)
 TOKEN_MONITOR_WATCH_POLLING=1    # only if container volumes never fire events
 ```
 
-**Gotcha:** a missing env file either becomes a stray directory (Docker Desktop auto-creates) or a hard container-start error (DinD). Create it before first use.
+**The env file is required.** It's bind-mounted from the host, and Docker refuses to start the container when a bind source is missing (`bind source path does not exist`), including on Docker Desktop. That means every container using this feature (including via `dev.containers.defaultFeatures`) fails to start on a machine without the file. Create it before first use. To opt out on a machine without changing which features you use, create an empty file. `start.sh` stays silent when the hub URL or secret is unset:
+
+```sh
+mkdir -p ~/.config/token-mon && touch ~/.config/token-mon/env
+```
 
 ## Changelog
 
 | Version | Notes           |
 | ------- | --------------- |
+| 1.0.2   | Docs: the env file is required; a missing file blocks container start (Docker Desktop doesn't auto-create it) |
 | 1.0.1   | Detach agent with `setsid` so it survives the postStartCommand TTY closing (#114) |
 | 1.0.0   | Initial version |
