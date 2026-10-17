@@ -1,7 +1,7 @@
 {
     "name": "Mount pnpm Store",
     "id": "mount-pnpm-store",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "documentationURL": "https://github.com/joshuanianji/devcontainer-features/tree/main/src/mount-pnpm-store",
     "description": "Mounts a shared Docker volume as the pnpm store directory so packages are downloaded once and reused across multiple devcontainers. Points pnpm at the volume via containerEnv — no pnpm invocation, no symlink.",
     "options": {},
